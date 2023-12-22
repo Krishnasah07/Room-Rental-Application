@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin' ], function () {
     Route::view('dashboard','backend.dashboard.admin.index');
 });
+
+Route::group(['prefix' => 'renter' ], function () {
+    Route::view('dashboard','backend.dashboard.renter.index');
+});
