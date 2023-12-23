@@ -22,3 +22,7 @@ Route::group(['prefix' => 'admin' ], function () {
 Route::group(['prefix' => 'renter' ], function () {
     Route::view('dashboard','backend.dashboard.renter.index');
 });
+
+Route::group(['prefix' => 'landlord' ], function () {
+    Route::view('dashboard','backend.dashboard.landlord.index');
+});
