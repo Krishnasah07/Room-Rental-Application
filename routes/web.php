@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin' ], function () {
-    Route::view('dashboard','backend.dashboard.admin.index');
+Route::view('/login','backend.dashboard.admin.login')->name('login.page');
+Route::post('/submit','LoginController@login')->name('admin.login.submit');
+
+// ,'middleware'=>'auth'
+Route::group(['prefix' => 'admin','middleware'=>'auth'], function () {
+    Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
 });
+
 
 Route::group(['prefix' => 'renter' ], function () {
     Route::view('dashboard','backend.dashboard.renter.index');

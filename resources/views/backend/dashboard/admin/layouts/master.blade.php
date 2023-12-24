@@ -29,7 +29,7 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_navbar.html -->
-        @include('backend.dashboard.common.nav')
+        @include('backend.dashboard.admin.common.nav')
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -37,7 +37,7 @@
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-        @include('backend.dashboard.common.footer')
+        @include('backend.dashboard.admin.common.footer')
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

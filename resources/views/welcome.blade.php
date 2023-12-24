@@ -81,6 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                    <a href="{{ route('login.page') }}"> Go To Login Page</a>
                     This is Our Main Project " Room Rental"
                 </div>
             </div>
