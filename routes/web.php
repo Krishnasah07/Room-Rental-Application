@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/login','backend.dashboard.admin.login')->name('login.page');
+Route::view('/login','backend.dashboard.login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
 
 // ,'middleware'=>'auth'
