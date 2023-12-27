@@ -31,3 +31,6 @@ Route::group(['prefix' => 'renter' ], function () {
 Route::group(['prefix' => 'landlord' ], function () {
     Route::view('dashboard','backend.dashboard.landlord.index');
 });
+
+Route::view('/log','backend.log');
+Route::view('/reg','backend.dashboard.reg');
