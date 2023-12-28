@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::view('/login','login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
 
-Route::group(['prefix' => 'admin','middleware'=>'auth'], function () {
+// ,'middleware'=>'auth'
+
+Route::group(['prefix' => 'admin'], function () {
     Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
 });
 

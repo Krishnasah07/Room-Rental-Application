@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Selecao Bootstrap Template - Index</title>
+  <title>Room Renatal ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -24,6 +24,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+  <!-- Searchbar CSS Files -->
+  <link href="{{ asset('css/search-bar.css') }}">
+  
   <style>
     canvas {
             display: block;
@@ -47,6 +50,44 @@
               align-items: center;
               text-align: center;
             }
+        .box{            
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            transform: translate(-50% -50%);
+          }
+          input{
+            position: relative;
+            display: inline-block;
+            box-sizing: border-box;
+            transition: 0.5s;
+          }
+          input[type="text"]{
+            background: rgba(205,255,240,0.3);
+            width: auto;
+            height: 50px;
+            border: none;
+            outline: none;
+            padding: 0 25px;
+            border-radius: 25px 0 0 25px;
+            backdrop-filter: blur(4px) saturate(180%);
+          }
+          input[type="submit"]
+          {
+            position: relative;
+            left: -5px;
+            border-radius:0 25px 25px 0;
+            max-width: 140px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            background: ;
+          }
+          input[type="submit"]:hover{
+            background: cac7ff;
+          }
+          ::placeholder{
+	          color: white;}
   </style>
 </head>
 
@@ -65,7 +106,17 @@
                 <div class="carousel-item active">
                   <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Roomie</span></h2>
-                    <p class="animate__animated fanimate__adeInUp">Krishna Sah</p>
+                    <div class="box">
+                       <form>
+                        <input type="text" class="control" name="" placeholder="Search Here">
+                        <input type="submit" class="control" name="" value="Search ">
+                        </form>  
+                    </div>
+
+                      <!-- <form class="search">
+                        <input type="text" class="form-control" placeholder="Search Here...">
+                      </form> -->
+                    <!-- <p class="animate__animated fanimate__adeInUp">Krishna Sah</p> -->
                     <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
                   </div>
                 </div>
