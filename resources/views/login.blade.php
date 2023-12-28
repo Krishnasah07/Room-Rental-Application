@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Registration Form in HTML and CSS | Codehal</title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('css/style-log.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-
     <div class="wrapper">
         <span class="bg-animate"></span>
         <span class="bg-animate2"></span>
 
     <div class="form-box login">
         <h3 class="animation" style="--i:0; --j:21;">Login</h3>
-
-        <form action="#">
+        <form action="{{ route('admin.login.submit') }}" Method="POST">
+            @csrf
             <div class="input-box animation" style="--i:1; --j:22;">
-                <input type="text" required>
-                <label>Username</label>
+                <input type="email" required>
+                <label>Email</label>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box animation" style="--i:2; --j:23;">
@@ -44,14 +42,15 @@
     
     <div class="form-box register">
         <h3 class="animation" style="--i:17; --j:0;">Sign Up</h3>
-        <form action="#">            
+        <form action="">            
             <div class="input-box animation" style="--i:18; --j:1;">
-                <input type="text" required>
-                <label>Username</label>
-                <i class='bx bxs-user'></i>
+                <!-- <input type="text" required> -->
+                <label>Are you ?</label>
+                <input type="radio" value="">Renter <input type="radio" value="">Landlord
+                <!-- <i class='bx bxs-user'></i> -->
             </div>
             <div class="input-box animation" style="--i:19; --j:2;">
-                <input type="text" required>
+                <input type="email" required>
                 <label>Email</label>
                 <i class='bx bxs-envelope'></i>
             </div>
@@ -68,7 +67,7 @@
     </div>
     <div class="info-text register">
         <h2 class="animation" style="--i:17; --j:0;">Welcome Back!</h2>
-        <p class="animation" style="--i:18; --j:1;">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <p class="animation" style="--i:18; --j:1;"></p>
     </div>
 </div> 
 

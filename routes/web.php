@@ -15,10 +15,9 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::view('/login','backend.dashboard.login')->name('login.page');
+Route::view('/login','login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
 
-// ,'middleware'=>'auth'
 Route::group(['prefix' => 'admin','middleware'=>'auth'], function () {
     Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
 });
@@ -31,6 +30,3 @@ Route::group(['prefix' => 'renter' ], function () {
 Route::group(['prefix' => 'landlord' ], function () {
     Route::view('dashboard','backend.dashboard.landlord.index');
 });
-
-Route::view('/log','backend.log');
-Route::view('/reg','backend.dashboard.reg');

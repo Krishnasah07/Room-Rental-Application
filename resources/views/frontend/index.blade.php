@@ -64,7 +64,7 @@
             <span class="js-count-particles">
                 <div class="carousel-item active">
                   <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Selecao</span></h2>
+                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Roomie</span></h2>
                     <p class="animate__animated fanimate__adeInUp">Krishna Sah</p>
                     <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
                   </div>
@@ -99,20 +99,20 @@
                     <h4 class="card-title">Portfolio Slide</h4>
                     <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
                       <div class="item">
-                        <img src="assets/images/dashboard/Rectangle.jpg" alt="">
+                        <img src="{{ asset('frontend/images/dashboard/Rectangle.jpg') }}" alt="Missing Image">
                       </div>
                       <div class="item">
-                        <img src="assets/images/dashboard/Img_5.jpg" alt="">
+                        <img src="{{ asset('frontend/images/dashboard/Img_5.jpg') }}" alt="Missing Image">
                       </div>
                       <div class="item">
-                        <img src="assets/images/dashboard/img_6.jpg" alt="">
+                        <img src="{{ asset('frontend/images/dashboard/img_6.jpg') }}" alt="Missing Image">
                       </div>
                     </div>
                     <div class="d-flex py-4">
                       <div class="preview-list w-100">
                         <div class="preview-item p-0">
                           <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face12.jpg" class="rounded-circle" alt="">
+                            <img src="{{ asset('frontend/images/faces/face12.jpg') }}" class="rounded-circle" alt="Missing Image">
                           </div>
                           <div class="preview-item-content d-flex flex-grow">
                             <div class="flex-grow">
@@ -357,18 +357,17 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <!-- <script src="assets/group/aos/aos.js"></script>
-  <script src="assets/group/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/group/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/group/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/group/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/group/php-email-form/validate.js"></script> -->
+  <!-- Vendor JS Files --> 
+      <script src="{{ asset('frontend/group/aos/aos.js') }}"></script>
+      <script src="{{ asset('frontend/group/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('frontend/group/glightbox/js/glightbox.min.js') }}"></script>
+      <script src="{{ asset('frontend/group/isotope-layout/isotope.pkgd.min.js') }}"></script>
+      <script src="{{ asset('frontend/group/swiper/swiper-bundle.min.js') }}"></script>
+      <script src="{{ asset('frontend/group/php-email-form/validate.js') }}"></script>
   <!-- js for particles with cdn -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="{{ asset('frontend/pat.js') }}"></script>
-
-  <!-- Template Main JS File -->
+<!--   Template Main JS File -->
   <script src="{{ asset('frontend/js/main.js') }}"></script>
 
 </body>
