@@ -3,6 +3,7 @@
 Route::get('/', function (){
     return view('front.index');
 });
+Route::view('/register','register')->name('user.login');
 
 Route::view('/login','login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
