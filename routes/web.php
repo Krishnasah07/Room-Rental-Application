@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function (){
-    return view('front.index');
+    return view('frontend.index');
 });
 
 Route::view('/login','login')->name('login.page');
