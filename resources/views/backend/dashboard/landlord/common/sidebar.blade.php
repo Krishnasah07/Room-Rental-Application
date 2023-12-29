@@ -137,6 +137,14 @@
               </span>
               <span class="menu-title">Documentation</span>
             </a>
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('create.room.details') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Rooms Details</span>
+            </a>
+</li>
           </li>
         </ul>
       </nav>

@@ -21,4 +21,5 @@ Route::group(['prefix'=>'renter'],function(){
 // group of landlord routes
 Route::group(['prefix'=>'landlord'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
+    Route::get('create','ProductConteroller@index')->name('create.room.details');
 });

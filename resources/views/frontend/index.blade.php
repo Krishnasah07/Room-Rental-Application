@@ -8,6 +8,8 @@
   <title>Room Renatal ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <!-- cards  -->
+
 
   <!-- Favicons -->
   <link href="{{ asset('frontend/img/favicon.png') }}" rel="icon">
