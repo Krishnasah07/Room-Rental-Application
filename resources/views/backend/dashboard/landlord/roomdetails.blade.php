@@ -28,27 +28,25 @@
       </tr>
       @forelse($products as $product)
 
-      <td>{{ $loop->iteration}}</td>
-      <td>{{ $product->address}}</td>
-      <td>{{ $product->price}}</td>
-      <td>{{ $product->rooms}}</td>
-      <td>{{ $product->halls}}</td>
-      <td>{{ $product->kitchen}}</td>
-      <td>{{ $product->bathroom}}</td>
-      <td>{{ $product->phone}}</td>
-      <td>{{ $product->staus}}</td>
-      <td>{{ $product->image1}}</td>
-      <td>{{ $product->image2}}</td>
-      <td>{{ $product->image3}}</td>
+        <td>{{ $loop->iteration}}</td>
+        <td>{{ $product->address}}</td>
+        <td>{{ $product->price}}</td>
+        <td>{{ $product->rooms}}</td>
+        <td>{{ $product->halls}}</td>
+        <td>{{ $product->kitchen}}</td>
+        <td>{{ $product->bathroom}}</td>
+        <td>{{ $product->phone}}</td>
+        <td>{{ $product->staus}}</td>
+        <td>{{ $product->image1}}</td>
+        <td>{{ $product->image2}}</td>
+        <td>{{ $product->image3}}</td>
      
       @empty
-      <td>NO Record !!!</td>
+        <td>NO Record !!!</td>
 
       @endforelse
       </thead>
-      <tbody>
-     
-      </tbody>
+      <tbody> 
     </table>
     
 @endsection
