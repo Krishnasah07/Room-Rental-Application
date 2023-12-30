@@ -9,6 +9,9 @@ Route::view('/register','register')->name('user.login');
 Route::view('/login','login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
 
+// Contact US Route
+Route::post('/contact-submit','ContactController@create')->name('contact.us.submit');
+
 // group of admin routes
 Route::group(['prefix'=>'admin'],function(){
     Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
@@ -22,4 +25,6 @@ Route::group(['prefix'=>'renter'],function(){
 // group of landlord routes
 Route::group(['prefix'=>'landlord'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
+    Route::get('create','ProductConteroller@index')->name('create.room.details');
+    Route::post('create-room-details','ProductConteroller@create')->name('insert.room.details');
 });
