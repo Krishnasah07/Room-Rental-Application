@@ -144,7 +144,17 @@
               </span>
               <span class="menu-title">Rooms Details</span>
             </a>
-</li>
+          </li>         
+          </li>
+          <li class="nav-item menu-items">
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Rooms Details</span>
+            </a>
+          </li>         
           </li>
         </ul>
       </nav>
