@@ -146,47 +146,42 @@
   <main id="main">
     <!-- ======= Content Section ======= -->
     <div class="">
-      <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Portfolio Slide</h4>
-                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
-                      <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/Rectangle.jpg') }}" alt="Missing Image">
-                      </div>
-                      <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/Img_5.jpg') }}" alt="Missing Image">
-                      </div>
-                      <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/img_6.jpg') }}" alt="Missing Image">
-                      </div>
-                    </div>
-                    <div class="d-flex py-4">
-                      <div class="preview-list w-100">
-                        <div class="preview-item p-0">
-                          <div class="preview-thumbnail">
-                            <img src="{{ asset('frontend/images/faces/face12.jpg') }}" class="rounded-circle" alt="Missing Image">
-                          </div>
-                          <div class="preview-item-content d-flex flex-grow">
-                            <div class="flex-grow">
-                              <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                <h6 class="preview-subject">CeeCee Bass</h6>
-                                <p class="text-muted text-small">4 Hours Ago</p>
-                              </div>
-                              <p class="text-muted">Well, it seems to be working now.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="text-muted">Well, it seems to be working now. </p>
-                    <div class="progress progress-md portfolio-progress">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="container mt-5" style="width: 20rem;">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title-container">
+          <h5 class="card-title">Room Title</h5>
+          
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://inspirationfeed.com/wp-content/uploads/2019/12/Sadhguru_-_February_2019_-_1_cropped-min-1.jpg" class="d-block w-100" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+              <img src="https://inspirationfeed.com/wp-content/uploads/2019/12/Sadhguru_-_February_2019_-_1_cropped-min-1.jpg" class="d-block w-100" alt="Slide 2">
+            </div>
+            <!-- Add more carousel items as needed -->
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+           
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       
+          </a>
+        </div>
+        <p class="card-price">Price: 10000</p>
+        <p class="card-details">Bedroom:4 </p>
+        <p class="card-details">Bathroom:4</p> 
+        <p class="card-details">Hall:1</p> 
+        <p class="card-details">Kitchen:2</p> 
+        <a href="#" class="btn btn-custom">View More</a><p class="card-details"><span class="time-label">Updated: January 1, 2023</span></p>
+      </div>
     </div>
+  </div>
+
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
