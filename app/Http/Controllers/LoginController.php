@@ -21,7 +21,7 @@ class LoginController extends Controller
                 if(Hash::check($request->password, $user->password)){
                     Auth::login($user);
                     return redirect()->route('admin.dashboard');
-                }
+                } 
                 $request->session()->flash('error','Incorrect Password'); 
                 return redirect()->back(); 
             }         

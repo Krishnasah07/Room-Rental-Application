@@ -2,9 +2,9 @@
 use App\Category;
 
 Route::get('/', function (){
-    $data['system'] = Systemsetting::find(1);
-    $data['categories'] = Category::with('products')->get();
-    $_SESSION['setting'] = $data['system'];
+    // $data['system'] = Systemsetting::find(1);
+    // $data['categories'] = Category::with('products')->get();
+    // $_SESSION['setting'] = $data['system'];
     return view('frontend.index');
 });
 Route::view('/register','register')->name('user.login');
