@@ -21,7 +21,7 @@ class ProductConteroller extends Controller
          'kitchen' =>$request->kitchen,
          'bathroom' =>$request->bathroom,
          'phone' =>$request->phone,
-         'staus' =>$request->staus,
+         'status' =>$request->status,
      ];
      Product::insert($data);
      return redirect()->back();
