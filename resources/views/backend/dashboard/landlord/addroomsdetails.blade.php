@@ -2,10 +2,8 @@
 @section('content')
 
 <form  action="{{ route('insert.room.details')}}" method='POST'> 
-    @csrf
-                
-
-                <div class="card-body">   
+      @csrf
+        <div class="card-body">   
                   <div class="form-group">
                     <label for="exampleInputEmail1">Room Address</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Room Address" name='address' value='{{ old("address")}}'>                  
@@ -47,7 +45,7 @@
 
                   <div class="form-group">
                     <label for="exampleInputPassword1">Status</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Status" name='staus' value='{{ old("staus")}}'>
+                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Status" name='status' value='{{ old("status")}}'>
                   </div>              
                 </div>
                 <!-- /.card-body -->

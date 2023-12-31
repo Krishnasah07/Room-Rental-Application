@@ -1,6 +1,10 @@
 <?php
+use App\Category;
 
 Route::get('/', function (){
+    $data['system'] = Systemsetting::find(1);
+    $data['categories'] = Category::with('products')->get();
+    $_SESSION['setting'] = $data['system'];
     return view('frontend.index');
 });
 Route::view('/register','register')->name('user.login');
@@ -14,7 +18,10 @@ Route::post('/contact-submit','ContactController@create')->name('contact.us.subm
 
 // group of admin routes
 Route::group(['prefix'=>'admin'],function(){
-    Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
+    Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
+
+    // System Setting Route
+    Route::resource('system-setting','Systemcontroller');
 });
 
 // group of renter routes
@@ -25,6 +32,7 @@ Route::group(['prefix'=>'renter'],function(){
 // group of landlord routes
 Route::group(['prefix'=>'landlord'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
+    Route::view('Room/Details/View','backend.dashboard.landlord.roomdetails')->name('room.details.view');
     Route::get('create','ProductConteroller@index')->name('create.room.details');
     Route::post('create-room-details','ProductConteroller@create')->name('insert.room.details');
 });

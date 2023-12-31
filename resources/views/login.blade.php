@@ -2,77 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ asset('css/style-log.css')}}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="wrapper">
-        <span class="bg-animate"></span>
-        <span class="bg-animate2"></span>
-
-    <div class="form-box login">
-        <h3 class="animation" style="--i:0; --j:21;">Login</h3>
-        <form action="{{ route('admin.login.submit') }}" Method="POST">
-            @csrf
-            <div class="input-box animation" style="--i:1; --j:22;">
-                <input type="email" required>
-                <label>Email</label>
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box animation" style="--i:2; --j:23;">
-                <input type="password" required>
-                <label>Password</label>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <button type="submit" class="btn animation" style="--i:3; --j:24;">Login</button>
-            <div class="logreg-link animation" style="--i:4; --j:25;">
-                <p>Don't have an account? <a href="#" class="register-link">Sign Up</a> </p>
-            </div>
-        </form>
-    </div>
-    <div class="info-text login">
-        <h2 class="animation" style="--i:0; --j:20;">Welcome Back!</h2>
-        <p class="animation" style="--i:1; --j:21;">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-    </div>
-
-    
-    <div class="form-box register">
-        <h3 class="animation" style="--i:17; --j:0;">Sign Up</h3>
-        <form action="">            
-            <div class="input-box animation" style="--i:18; --j:1;">
-                <!-- <input type="text" required> -->
-                <label>Are you ?</label>
-                <input type="radio" value="">Renter <input type="radio" value="">Landlord
-                <!-- <i class='bx bxs-user'></i> -->
-            </div>
-            <div class="input-box animation" style="--i:19; --j:2;">
-                <input type="email" required>
-                <label>Email</label>
-                <i class='bx bxs-envelope'></i>
-            </div>
-            <div class="input-box animation" style="--i:20; --j:3;">
-                <input type="password" required>
-                <label>Password</label>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <button type="submit" class="btn animation" style="--i:21; --j:4;">Sign Up</button>
-            <div class="logreg-link animation" style="--i:22; --j:5;">
-                <p>Already have an account? <a href="#" class="login-link">Login</a> </p>
-            </div>
-        </form>
-    </div>
-    <div class="info-text register">
-        <h2 class="animation" style="--i:17; --j:0;">Welcome Back!</h2>
-        <p class="animation" style="--i:18; --j:1;"></p>
-    </div>
-</div> 
-
-
- <script src="{{asset('script-log.js')}}"></script>  
+@if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+@endif
+@if ($errors->any())
+     @foreach ($errors->all() as $error)
+         <div>{{$error}}</div>
+     @endforeach
+ @endif
+<form action="{{ route('admin.login.submit') }}" method="POST">
+    @csrf
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </body>
-
 </html>

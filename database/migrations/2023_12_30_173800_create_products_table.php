@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('kitchen');
             $table->tinyInteger('bathroom');
             $table->string('phone');
-            $table->tinyInteger('staus');
+            $table->tinyInteger('status');
             $table->tinyInteger('image1');
             $table->tinyInteger('image2');
             $table->tinyInteger('image3');
