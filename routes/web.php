@@ -2,9 +2,9 @@
 use App\Category;
 
 Route::get('/', function (){
-    $data['system'] = Systemsetting::find(1);
-    $data['categories'] = Category::with('products')->get();
-    $_SESSION['setting'] = $data['system'];
+    // $data['system'] = Systemsetting::find(1);
+    // $data['categories'] = Category::with('products')->get();
+    // $_SESSION['setting'] = $data['system'];
     return view('frontend.index');
 });
 
@@ -31,7 +31,18 @@ Route::group(['prefix'=>'renter'],function(){
 // group of landlord routes
 Route::group(['prefix'=>'landlord'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
-    Route::view('Room/Details/View','backend.dashboard.landlord.roomdetails')->name('room.details.view');
-    Route::get('create','ProductConteroller@index')->name('create.room.details');
-    Route::post('create-room-details','ProductConteroller@create')->name('insert.room.details');
+
+    // Room Details All Routes
+    Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
+    Route::get('Room/Details/Add','ProductConteroller@addroomview')->name('Room.Details.View');  //Add Room Category
+    Route::post('Room/Detail/Add','ProductConteroller@create')->name('Add.Room.Details');  //Insert Room Data
+    
+
+    // Room Category All Routes
+    Route::get('Room/Category','CategoryConteroller@index')->name('Room.Category');  //view category
+    Route::get('Room/Category/Add','CategoryConteroller@addcat')->name('Room.Category.View');  //Add Room Category
+    Route::post('Room/Category/add/Details','CategoryConteroller@catinsert')->name('Add.Room.Category');  //Insert Category Data
+    Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //Delete category
+    Route::get('Rooms/Category/Edit/{id}','CategoryConteroller@catedit')->name('Room.Category.Edit');  //Edit category   
+    Route::post('Room/Category/Update/{id}','CategoryConteroller@catupdate')->name('Update.Room.Category');  //Insert Category Data
 });

@@ -54,22 +54,25 @@
           </li>
           <li class="nav-item menu-items">
           </li>
+          
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Form Elements</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="{{ route('Room.Category') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Tables</span>
+              <span class="menu-title">Room Catgeory</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('Room.Details') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">Room Details</span>
+            </a>
+          </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
@@ -112,7 +115,7 @@
               <span class="menu-title">Documentation</span>
             </a>
             <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('room.details.view') }}">
+            <a class="nav-link" href="">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>

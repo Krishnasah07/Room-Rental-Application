@@ -8,22 +8,29 @@ use App\Product;
 class ProductConteroller extends Controller
 {
     public function index(){ 
-        return view('backend.dashboard.landlord.addroomsdetails');
+        $data['rooms'] = Product::paginate(5);
+        return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
+
+    public function addroomview()
+    {
+        $data['categories'] = Category::where('status',1)->get();
+        return view('backend.dashboard.landlord.Room.addroomsdetails',$data);
+    } 
 
     public function create(Request  $request){
         $data = [
-         'address' =>$request->address,
          'category_id' =>$request->category_id,
+         'location' =>$request->location,
          'price' =>$request->price,
-         'rooms' =>$request->rooms,
-         'halls' =>$request->halls,
+         'room' =>$request->room,
+         'hall' =>$request->hall,
          'kitchen' =>$request->kitchen,
          'bathroom' =>$request->bathroom,
          'phone' =>$request->phone,
          'status' =>$request->status,
      ];
      Product::insert($data);
-     return redirect()->back();
+     return redirect()->route('room.details.view');
  }
 }

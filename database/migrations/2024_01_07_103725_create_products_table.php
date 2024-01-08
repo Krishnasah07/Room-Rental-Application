@@ -16,17 +16,17 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
-            $table->string('address');
+            $table->string('location');
+            $table->text('hall')->nullable();
+            $table->text('room')->nullable();
+            $table->text('kitchen')->nullable();
+            $table->text('bathroom')->nullable();
+            $table->string('image');
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();            
             $table->string('price');
-            $table->tinyInteger('rooms');
-            $table->tinyInteger('halls');
-            $table->tinyInteger('kitchen');
-            $table->tinyInteger('bathroom');
-            $table->string('phone');
             $table->tinyInteger('status');
-            $table->tinyInteger('image1');
-            $table->tinyInteger('image2');
-            $table->tinyInteger('image3');
+            $table->integer('phone')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

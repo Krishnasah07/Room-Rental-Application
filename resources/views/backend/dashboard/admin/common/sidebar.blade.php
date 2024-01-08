@@ -131,7 +131,7 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('system-setting.index') }}">
+            <a class="nav-link" href="{{ route('system-setting.index') }}" >
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>

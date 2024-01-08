@@ -152,20 +152,20 @@
                     <h4 class="card-title">Portfolio Slide</h4>
                     <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
                       <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/Rectangle.jpg') }}" alt="Missing Image">
+                        <img src="" alt="Missing Image">
                       </div>
                       <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/Img_5.jpg') }}" alt="Missing Image">
+                        <img src="" alt="Missing Image">
                       </div>
                       <div class="item">
-                        <img src="{{ asset('frontend/images/dashboard/img_6.jpg') }}" alt="Missing Image">
+                        <img src="" alt="Missing Image">
                       </div>
                     </div>
                     <div class="d-flex py-4">
                       <div class="preview-list w-100">
                         <div class="preview-item p-0">
                           <div class="preview-thumbnail">
-                            <img src="{{ asset('frontend/images/faces/face12.jpg') }}" class="rounded-circle" alt="Missing Image">
+                            <img src="" class="rounded-circle" alt="Missing Image">
                           </div>
                           <div class="preview-item-content d-flex flex-grow">
                             <div class="flex-grow">
