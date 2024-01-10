@@ -150,7 +150,7 @@
   <br/>
   <main id="main">
     <!-- ======= Content Section ======= -->
-    
+    <section id="contents" class="">
     <div class="container py-5">
     @forelse($categories as $cat)
         <h1 class="text-center"><b>{{ $cat->category_name}}</b></h1>
@@ -183,10 +183,11 @@
         @empty
         @endforelse 
     </div>
+          </section>
 
     <!-- <hr/> -->
     <!-- ======= Services Section ======= -->
-    <!-- <section id="services" class="services">
+    <section id="services" class="services">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
@@ -242,7 +243,7 @@
         </div>
 
       </div>
-    </section> -->
+    </section>
     <!-- End Services Section -->
 
     <!-- ======= Contact Section ======= -->
