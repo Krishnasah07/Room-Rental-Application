@@ -8,6 +8,7 @@ use App\Product;
 class ProductConteroller extends Controller
 {
     public function index(){ 
+        
         $data['rooms'] = Product::paginate(5);
         return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
@@ -19,6 +20,7 @@ class ProductConteroller extends Controller
     } 
 
     public function create(Request  $request){
+
         $data = [
          'category_id' =>$request->category_id,
          'location' =>$request->location,
@@ -31,6 +33,21 @@ class ProductConteroller extends Controller
          'status' =>$request->status,
      ];
      Product::insert($data);
-     return redirect()->route('room.details.view');
- }
+     return redirect()->route('Room.Details');
+    //  return redirect()->back();
+     }
+
+     // Delete Category
+    public function roomdelete($id){
+        if(!$id){
+            return redirect()->route('Room.Details');
+        }
+        try{
+            $product = Product::find($id);
+            $product->delete();
+            return redirect()->route('Room.Details'); 
+        }catch(\Exception $e){
+          return redirect()->route('Room.Details'); 
+        }
+    }
 }

@@ -21,7 +21,7 @@ class CategoryConteroller extends Controller
     // Add Category
     public function catinsert(Request $request){
         $request->validate([
-            'category_name' =>'required | unique',
+            'category_name' =>'required |unique:categories',
             'type'=>'required ',
             'status'=>'required'
         ]);
@@ -43,7 +43,7 @@ class CategoryConteroller extends Controller
         }
 
         try{
-            $category = Category:: find($id);
+            $category = Category::find($id);
             $category->delete();
             return redirect()->route('Room.Category'); 
         }catch(\Exception $e){

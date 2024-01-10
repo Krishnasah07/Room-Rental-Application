@@ -1,11 +1,12 @@
 <?php
 use App\Category;
+use App\Systemsetting;
 
 Route::get('/', function (){
-    // $data['system'] = Systemsetting::find(1);
-    // $data['categories'] = Category::with('products')->get();
+    $data['system'] = Systemsetting::find(1);
+    $data['categories'] = Category::with('products')->get();
     // $_SESSION['setting'] = $data['system'];
-    return view('frontend.index');
+    return view('frontend.index',$data);
 });
 
 // login and Register Route
@@ -35,7 +36,8 @@ Route::group(['prefix'=>'landlord'],function(){
     // Room Details All Routes
     Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
     Route::get('Room/Details/Add','ProductConteroller@addroomview')->name('Room.Details.View');  //Add Room Category
-    Route::post('Room/Detail/Add','ProductConteroller@create')->name('Add.Room.Details');  //Insert Room Data
+    Route::post('Room/Detail/Add','ProductConteroller@create')->name('Add.Room.Details');  //Insert Room Data 
+    Route::get('Room/Details/Delete/{id}','ProductConteroller@roomdelete')->name('Room.Details.Delete');  //Delete Room details
     
 
     // Room Category All Routes

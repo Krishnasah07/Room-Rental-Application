@@ -8,8 +8,11 @@
   <title>Room Renatal ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- cards  -->
+  <!-- Bootstrap 4 CDN  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+  <!-- Card Css -->
+  <link href="{{ asset('card/style.css') }}" rel="stylesheet">
 
   <!-- Favicons -->
   <link href="{{ asset('frontend/img/favicon.png') }}" rel="icon">
@@ -27,8 +30,7 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
   <!-- Searchbar CSS Files -->
-  <link href="{{ asset('css/search-bar.css') }}">
-  
+  <link href="{{ asset('css/search-bar.css') }}"> 
   <style>
     canvas {
             display: block;
@@ -90,6 +92,9 @@
           }
           ::placeholder{
 	          color: white;}
+
+          .hv:hover{
+    background-color: black;}
   </style>
 </head>
 
@@ -142,54 +147,46 @@
     </svg>
 
   </section><!-- End Hero -->
-  <br/><br/>
+  <br/>
   <main id="main">
     <!-- ======= Content Section ======= -->
-    <div class="">
-      <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Portfolio Slide</h4>
-                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
-                      <div class="item">
-                        <img src="" alt="Missing Image">
-                      </div>
-                      <div class="item">
-                        <img src="" alt="Missing Image">
-                      </div>
-                      <div class="item">
-                        <img src="" alt="Missing Image">
-                      </div>
+    
+    <div class="container py-5">
+    @forelse($categories as $cat)
+        <h1 class="text-center">{{ $cat->category_name}}</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-5">       
+        
+        @forelse($cat->products as $prod)
+        <div class="col">
+      
+                <div style="border-radius: 30px;" class="card">
+                    <img style="border-radius: 50px;" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
+                        <p class="card-text">
+                          No. of Hall : {{ $prod->hall }}<br>
+                          No. of Rooms : {{ $prod->room }}<br>
+                          No. of Kitchen : {{ $prod->kitchen }}<br>
+                          No. of Bathroom : {{ $prod->bathroom }}<br>
+                          Please contact us to get the room or flat <br>Number : <u>{{ $prod->phone }}</u>
+                        </p>
                     </div>
-                    <div class="d-flex py-4">
-                      <div class="preview-list w-100">
-                        <div class="preview-item p-0">
-                          <div class="preview-thumbnail">
-                            <img src="" class="rounded-circle" alt="Missing Image">
-                          </div>
-                          <div class="preview-item-content d-flex flex-grow">
-                            <div class="flex-grow">
-                              <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                <h6 class="preview-subject">CeeCee Bass</h6>
-                                <p class="text-muted text-small">4 Hours Ago</p>
-                              </div>
-                              <p class="text-muted">Well, it seems to be working now.</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="mb-5 d-flex justify-content-around">
+                        <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $prod->price }} </u></h3>
+                        <button href="" style="border-radius: 50px;" class="btn btn-primary hv">View Details</button>
                     </div>
-                    <p class="text-muted">Well, it seems to be working now. </p>
-                    <div class="progress progress-md portfolio-progress">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
                 </div>
-              </div>
+                </div> 
+        @empty 
+        @endforelse       
+        </div>
+        @empty
+        @endforelse 
     </div>
 
+    <!-- <hr/> -->
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <!-- <section id="services" class="services">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
@@ -245,7 +242,7 @@
         </div>
 
       </div>
-    </section>
+    </section> -->
     <!-- End Services Section -->
 
     <!-- ======= Contact Section ======= -->
@@ -336,6 +333,9 @@
   <script src="{{ asset('frontend/pat.js') }}"></script>
 <!--   Template Main JS File -->
   <script src="{{ asset('frontend/js/main.js') }}"></script>
+
+  <!-- Bootstrap 4 CDN  js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 

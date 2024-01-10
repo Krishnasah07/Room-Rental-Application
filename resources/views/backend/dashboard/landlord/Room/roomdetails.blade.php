@@ -40,7 +40,7 @@
                               @endif
                               </td>
                               <td>
-                                <a href=""> <button type="button" class="btn btn-danger">Delete</button> </a> 
+                                <a href="{{ route('Room.Details.Delete',$room->id) }}"> <button type="button" class="btn btn-danger">Delete</button> </a> 
                                 <a href=""> <button type="button" class="btn btn-info ">Edit</button> </a>
                               </td>
                             </tr>
