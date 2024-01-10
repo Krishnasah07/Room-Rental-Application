@@ -153,7 +153,7 @@
     
     <div class="container py-5">
     @forelse($categories as $cat)
-        <h1 class="text-center">{{ $cat->category_name}}</h1>
+        <h1 class="text-center"><b>{{ $cat->category_name}}</b></h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">       
         
         @forelse($cat->products as $prod)
