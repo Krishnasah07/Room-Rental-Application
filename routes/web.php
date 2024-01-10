@@ -1,5 +1,6 @@
 <?php
 use App\Category;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function (){
     // $data['system'] = Systemsetting::find(1);
@@ -18,7 +19,7 @@ Route::post('/contact-submit','ContactController@create')->name('contact.us.subm
 
 // group of admin routes
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
+    Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
 
     // System Setting Route
     Route::resource('system-setting','Systemcontroller');

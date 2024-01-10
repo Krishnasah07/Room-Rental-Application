@@ -20,7 +20,19 @@ class LoginController extends Controller
             if($user->password){
                 if(Hash::check($request->password, $user->password)){
                     Auth::login($user);
-                    return redirect()->route('admin.dashboard');
+
+                    $userRoles = Auth::user()->role;
+                    if ($userRoles == 'admin') {
+                        return redirect()->route('admin.dashboard');
+                    } elseif ($userRoles == 'landlord')  {
+                        return redirect()->route('landlord.dashboard');
+                    } elseif ($userRoles == 'renter') {
+                        return redirect()->route('renter.dashboard');
+                    }
+                          
+                        return redirect()->route('home');
+            
+
                 } 
                 $request->session()->flash('error','Incorrect Password'); 
                 return redirect()->back(); 
@@ -30,9 +42,9 @@ class LoginController extends Controller
         return redirect()->back(); 
     }
 
-    public function dashboard(){
-        $system_setting = Systemsetting::find(1);
-        $_SESSION['setting'] = $system_setting;
-        return view('backend.dashboard.admin.index', compact('system_setting'));
-    }
+    // public function dashboard(){
+    //     $system_setting = Systemsetting::find(1);
+    //     $_SESSION['setting'] = $system_setting;
+    //     return view('backend.dashboard.admin.index', compact('system_setting'));
+    // }
 }
