@@ -14,7 +14,7 @@ Route::view('/login','login')->name('login.page');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
 
 // Contact US Route
-Route::post('/contact-submit','ContactController@create')->name('contact.us.submit');
+Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Submit');
 
 // group of admin routes
 Route::group(['prefix'=>'admin'],function(){

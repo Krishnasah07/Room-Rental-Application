@@ -21,7 +21,7 @@ class ContactController extends Controller
             'subject'->$request -> subject,
             'message'->$request -> message           
         ];
-        dd($data);
+        // dd($data);
         Contact::insert($data);
         return redirect()->back();
     }

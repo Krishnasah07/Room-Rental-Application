@@ -283,7 +283,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
-            <form action="{{ route('contact.us.submit') }}" method="post" role="form" class="php-email-form">
+            <form action="{{ route('Contact.Us.Submit') }}" method="post" role="form" class="php-email-form">
               @csrf
               <div class="row">
                 <div class="col-md-6 form-group">

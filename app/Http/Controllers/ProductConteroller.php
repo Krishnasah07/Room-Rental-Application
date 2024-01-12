@@ -21,6 +21,25 @@ class ProductConteroller extends Controller
 
     public function create(Request  $request){
 
+        $request->validate([
+            'location' => 'required',
+            'price' =>'required',
+            'status' => 'required',
+            'room' => 'required',
+            'category_id' => 'required',
+            'phone' => 'required',
+       ]);
+
+       $image = array();
+
+       if($files = $request->file('image') && is_array($request->file('image'))){
+        // foreach($files as $file){
+        //     $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
+        //     $newPath = public_path()."/uploads/";
+        //     $file->move($newPath, $newName);
+        //     $image[]= image;
+        // }
+    }
         $data = [
          'category_id' =>$request->category_id,
          'location' =>$request->location,
@@ -37,7 +56,7 @@ class ProductConteroller extends Controller
     //  return redirect()->back();
      }
 
-     // Delete Category
+     // Delete Room Details
     public function roomdelete($id){
         if(!$id){
             return redirect()->route('Room.Details');
