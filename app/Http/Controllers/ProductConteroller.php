@@ -7,8 +7,8 @@ use App\Product;
 
 class ProductConteroller extends Controller
 {
-    public function index(){ 
-        
+    public function index(){
+
         $data['rooms'] = Product::paginate(5);
         return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
@@ -17,7 +17,7 @@ class ProductConteroller extends Controller
     {
         $data['categories'] = Category::where('status',1)->get();
         return view('backend.dashboard.landlord.Room.addroomsdetails',$data);
-    } 
+    }
 
     public function create(Request  $request){
 
@@ -30,15 +30,20 @@ class ProductConteroller extends Controller
             'phone' => 'required',
        ]);
 
-       $image = array();
+        $images = array();
 
        if($files = $request->file('image') && is_array($request->file('image'))){
-        // foreach($files as $file){
-        //     $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
-        //     $newPath = public_path()."/uploads/";
-        //     $file->move($newPath, $newName);
-        //     $image[]= image;
-        // }
+
+           for ($i = 0; $i <= 2; $i++) {
+               $imageKey = 'image' . $i;
+               if ($request->file('image')[$i]) {
+                   $file =  $request->file('image')[$i];
+                   $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
+                   $newPath = public_path()."/uploads/";
+                   $file->move($newPath, $newName);
+                   $images[$imageKey] = $newName;
+               }
+           }
     }
         $data = [
          'category_id' =>$request->category_id,
@@ -50,7 +55,11 @@ class ProductConteroller extends Controller
          'bathroom' =>$request->bathroom,
          'phone' =>$request->phone,
          'status' =>$request->status,
+         'image' =>$images['image0'] ?? "",
+         'image2'=>$images['image1'] ?? "",
+         'image3'=>$images['image2'] ?? ""
      ];
+
      Product::insert($data);
      return redirect()->route('Room.Details');
     //  return redirect()->back();
@@ -64,9 +73,9 @@ class ProductConteroller extends Controller
         try{
             $product = Product::find($id);
             $product->delete();
-            return redirect()->route('Room.Details'); 
+            return redirect()->route('Room.Details');
         }catch(\Exception $e){
-          return redirect()->route('Room.Details'); 
+          return redirect()->route('Room.Details');
         }
     }
 }

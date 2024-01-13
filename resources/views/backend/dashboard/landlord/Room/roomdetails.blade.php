@@ -28,11 +28,11 @@
                               <td> {{ $loop->iteration }} </td>
                               <td> {{ $room-> category_id}} </td>
                               <td> {{ $room->room}} </td>
-                              <td> {{ $room->image}} </td>
-                              <td> {{ $room->image2}} </td>
-                              <td> {{ $room->image3}} </td>
+                              <td> <img src="{{ asset('uploads').'/'.$room->image }} " height="200px" width="200px"></td>
+                              <td> <img src="{{ asset('uploads').'/'.$room->image2 }} " height="200px" width="200px"> </td>
+                              <td> <img src="{{ asset('uploads').'/'.$room->image3 }} " height="200px" width="200px"> </td>
                               <td> {{ $room->price}} </td>
-                              <td> 
+                              <td>
                               @if($room->status == "1")
                               Active
                               @else
@@ -40,11 +40,11 @@
                               @endif
                               </td>
                               <td>
-                                <a href="{{ route('Room.Details.Delete',$room->id) }}"> <button type="button" class="btn btn-danger">Delete</button> </a> 
+                                <a href="{{ route('Room.Details.Delete',$room->id) }}"> <button type="button" class="btn btn-danger">Delete</button> </a>
                                 <a href=""> <button type="button" class="btn btn-info ">Edit</button> </a>
                               </td>
                             </tr>
-                            @empty 
+                            @empty
                          <tr><td colspan="9" align="center"> No Record Found !! </td></tr>
                        @endforelse
                         </tbody>
@@ -53,5 +53,5 @@
                   </div>
                 </div>
               </div>
-      
+
 @endsection
