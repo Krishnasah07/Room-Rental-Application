@@ -160,7 +160,7 @@
         <div class="col">
       
                 <div style="border-radius: 30px;" class="card">
-                    <img style="border-radius: 50px;" src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg" class="card-img-top" alt="...">
+                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$prod->image }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
                         <p class="card-text">
@@ -173,7 +173,9 @@
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
                         <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $prod->price }} </u></h3>
-                        <button href="" style="border-radius: 50px;" class="btn btn-primary hv">View Details</button>
+                        <a href="{{ route('details', $prod->id) }}"  target="_blank" >
+                          <button style="border-radius: 50px;" class="btn btn-primary hv"> View Details</button>
+                        </a>
                     </div>
                 </div>
                 </div> 

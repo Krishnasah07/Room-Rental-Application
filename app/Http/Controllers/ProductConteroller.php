@@ -39,7 +39,7 @@ class ProductConteroller extends Controller
                if ($request->file('image')[$i]) {
                    $file =  $request->file('image')[$i];
                    $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
-                   $newPath = public_path()."/uploads/";
+                   $newPath = public_path()."/Room_Images/";
                    $file->move($newPath, $newName);
                    $images[$imageKey] = $newName;
                }

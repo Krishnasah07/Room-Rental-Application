@@ -2,12 +2,19 @@
 use App\Category;
 use App\Systemsetting;
 
+
+
+// Frontend All Routes i.e Main page all routes
 Route::get('/', function (){
     $data['system'] = Systemsetting::find(1);
     $data['categories'] = Category::with('products')->get();
     // $_SESSION['setting'] = $data['system'];
     return view('frontend.index',$data);
 });
+
+// View Room details Route
+Route::get('Room/Details','FrontendController@roomdetails')->name('details');
+
 
 // login and Register Route
 Route::view('/login','login')->name('login.page');

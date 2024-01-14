@@ -28,9 +28,9 @@
                               <td> {{ $loop->iteration }} </td>
                               <td> {{ $room-> category_id}} </td>
                               <td> {{ $room->room}} </td>
-                              <td> <img src="{{ asset('uploads').'/'.$room->image }} " height="200px" width="200px"></td>
-                              <td> <img src="{{ asset('uploads').'/'.$room->image2 }} " height="200px" width="200px"> </td>
-                              <td> <img src="{{ asset('uploads').'/'.$room->image3 }} " height="200px" width="200px"> </td>
+                              <td> <img src="{{ asset('Room_Images').'/'.$room->image }} " height="200px" width="200px"></td>
+                              <td> <img src="{{ asset('Room_Images').'/'.$room->image2 }} " height="200px" width="200px"> </td>
+                              <td> <img src="{{ asset('Room_Images').'/'.$room->image3 }} " height="200px" width="200px"> </td>
                               <td> {{ $room->price}} </td>
                               <td>
                               @if($room->status == "1")
