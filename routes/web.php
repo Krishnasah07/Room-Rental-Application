@@ -18,7 +18,7 @@ Route::post('/submit','LoginController@login')->name('admin.login.submit');
 Route::post('/contact-submit','ContactController@create')->name('contact.us.submit');
 
 // group of admin routes
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.admin.index')->name('admin.dashboard');
 
     // System Setting Route
@@ -26,12 +26,12 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 // group of renter routes
-Route::group(['prefix'=>'renter'],function(){
+Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
 });
 
 // group of landlord routes
-Route::group(['prefix'=>'landlord'],function(){
+Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
     Route::view('Room/Details/View','backend.dashboard.landlord.roomdetails')->name('room.details.view');
     Route::get('create','ProductConteroller@index')->name('create.room.details');

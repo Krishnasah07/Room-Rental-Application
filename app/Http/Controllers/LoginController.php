@@ -22,21 +22,26 @@ class LoginController extends Controller
                     Auth::login($user);
 
                     $userRoles = Auth::user()->role;
-                    if ($userRoles == 'admin') {
-                        return redirect()->route('admin.dashboard');
-                    } elseif ($userRoles == 'landlord')  {
-                        return redirect()->route('landlord.dashboard');
-                    } elseif ($userRoles == 'renter') {
-                        return redirect()->route('renter.dashboard');
+                    switch ($userRoles) {
+                        case 'admin':
+                            return redirect()->route('admin.dashboard');
+                            break;
+                    
+                        case 'landlord':
+                            return redirect()->route('landlord.dashboard');
+                            break;
+                    
+                        case 'renter':
+                            return redirect()->route('renter.dashboard');
+                            break;
+                    
+                        default:
+                            return redirect()->route('home');
                     }
-                          
-                        return redirect()->route('home');
-            
-
-                } 
+                    
                 $request->session()->flash('error','Incorrect Password'); 
                 return redirect()->back(); 
-            }         
+                }       
         }
         $request->session()->flash('error','User Not Found'); 
         return redirect()->back(); 
@@ -47,4 +52,5 @@ class LoginController extends Controller
     //     $_SESSION['setting'] = $system_setting;
     //     return view('backend.dashboard.admin.index', compact('system_setting'));
     // }
+    }
 }
