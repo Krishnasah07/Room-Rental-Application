@@ -18,13 +18,18 @@ Route::get('Room/Details/{id}','FrontendController@roomdetails')->name('details'
 
 // login and Register Route
 Route::view('/login','login')->name('login.page');
+Route::get('/register','RegisterController@index')->name('register.page');
+Route::post('/register','RegisterController@register')->name('register.submit');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
+
+//search
+Route::get('/search','CategoryConteroller@search')->name('frontend.search');
 
 // Contact US Route
 Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Submit');
 
 // group of admin routes
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
 
     // Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //
@@ -34,12 +39,12 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 // group of renter routes
-Route::group(['prefix'=>'renter'],function(){
+Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
 });
 
 // group of landlord routes
-Route::group(['prefix'=>'landlord'],function(){
+Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
 
     // Room Details All Routes
