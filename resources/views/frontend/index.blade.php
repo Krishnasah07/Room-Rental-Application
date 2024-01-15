@@ -114,8 +114,9 @@
                   <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Roomie</span></h2>
                     <div class="box">
-                       <form>
-                        <input type="text" class="control" name="" placeholder="Search Here">
+                       <form action='{{ route("frontend.search")}}' method='get'>
+                        @csrf
+                        <input type="text" class="control" name="" placeholder="Search Here" name="search">
                         <input type="submit" class="control" name="" value="Search ">
                         </form>  
                     </div>
