@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Category;
+use App\Product;
+use App\Systemsetting;
 use Illuminate\Http\Request;
 
 
@@ -92,7 +94,22 @@ class CategoryConteroller extends Controller
     }
     public function search(Request $request){
 
-        dd($request->all());
+        $searchTerm = $request->search;
+        $query = Product::query();
+        $data['system'] = Systemsetting::find(1);
+        $_SESSION['setting'] = $data['system'];
+        if($searchTerm){
+            $query-> where('address','LIKE','%'.$searchTerm.'%')
+                    ->orWhere('price','LIKE','%'.$searchTerm.'%')
+                    ->orWhere('kitchen','LIKE','%'.$searchTerm.'%');
+                    $data['products'] = $query->get();
+                     
+                    return view('frontend.result',$data);
+
+        }else{
+            return redirect() -> back();
+
+        }
 
     }
 
