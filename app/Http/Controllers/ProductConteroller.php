@@ -79,5 +79,20 @@ class ProductConteroller extends Controller
         }
     }
 
-    
+    public function ProductDetails($id){
+        if(!$id){
+            return redirect()->back();
+        }
+
+        $product = Product::find($id);
+
+        if($product){
+            return view('frontend.showdetails', compact('product'));
+        }
+
+        if(!$id){
+            session()->flash('error', 'Product NOt found !!');
+            return redirect()->back();
+        }
+    }
 }
