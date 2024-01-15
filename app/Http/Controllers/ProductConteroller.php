@@ -78,4 +78,6 @@ class ProductConteroller extends Controller
           return redirect()->route('Room.Details');
         }
     }
+
+    
 }

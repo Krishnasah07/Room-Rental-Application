@@ -32,6 +32,54 @@
   <!-- Searchbar CSS Files -->
   <link href="{{ asset('css/search-bar.css') }}"> 
   <style>
+      body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            flex: 1;
+            margin: 5px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-description {
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .product-images {
+                flex-direction: column;
+            }
+
+            .product-image {
+                flex: 100%;
+            }
+        }
     .bg{
         background: linear-gradient( 60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100% );
     }
@@ -63,17 +111,66 @@
   <br/>
 
   <!-- main content starts -->
-  <section class="">
-    lpkojiugytdrsetdyuiop[oiugyfdr
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum velit sequi aperiam, animi facere ut soluta error placeat quaerat culpa vero laudantium cum sunt recusandae perspiciatis id delectus vitae atque?
-    
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum velit sequi aperiam, animi facere ut soluta error placeat quaerat culpa vero laudantium cum sunt recusandae perspiciatis id delectus vitae atque?
-    
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum velit sequi aperiam, animi facere ut soluta error placeat quaerat culpa vero laudantium cum sunt recusandae perspiciatis id delectus vitae atque?
+  <section>
+  <div class="product-container">
 
-  </section>
-    <!-- main content ends -->
+        <div class="product-images">
+            <div class="product-image">
+                <img src="{{ asset('Room_Images').'/'.$product->image }}" alt="Product Image 1">
+            </div><br>
+            <div class="product-image">
+                <img src="{{ asset('Room_Images').'/'.$product->image2 }}" alt="Product Image 2">
+            </div>
+            <div class="product-image">
+                <img src="{{ asset('Room_Images').'/'.$product->image3 }}" alt="Product Image 3">
+            </div>
+        </div>
 
+        <div class="product-description">
+            <h2>{{ $product->location}} </h2>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>No. of Room</th>
+                            <td> {{ $product->room }} </td>                        
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th >No. of Kitchen</th>
+                            <td> {{ $product->kitchen }} </td>                        
+                          </tr>
+                          <tr>
+                            <th> No. of Washroom </th>
+                            <td> {{ $product->bathroom }} </td>                        
+                          </tr>
+                          <tr>
+                            <th >No. of Location</th>
+                            <td> {{ $product->location }} </td>                        
+                          </tr>
+                          <tr>
+                            <th>  Contact Number </th>
+                            <td> <u>{{ $product->phone }}</u> </td>                        
+                          <tr>
+                            <td colspan="2">
+                              <p>
+                              {{ $product->Description }}
+                              </p>
+                            </td>
+                          </tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+          </div> <br/>
+        <button class="btn btn-outline-secondary btn-fw"> Rs. {{ $product->price }}  </button>
+        <a href="">
+          <button class="btn btn-success"> Reserve Now </button>         
+        </a>
+       </div>
+    <section>
+</body>
+  
   <!-- ======= Footer ======= -->
   @include('frontend.common.footer')
   <!-- End Footer -->
