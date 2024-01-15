@@ -99,9 +99,11 @@ class CategoryConteroller extends Controller
         $data['system'] = Systemsetting::find(1);
         $_SESSION['setting'] = $data['system'];
         if($searchTerm){
-            $query-> where('address','LIKE','%'.$searchTerm.'%')
+            $query-> where('location','LIKE','%'.$searchTerm.'%')
                     ->orWhere('price','LIKE','%'.$searchTerm.'%')
-                    ->orWhere('kitchen','LIKE','%'.$searchTerm.'%');
+                    ->orWhere('kitchen','LIKE','%'.$searchTerm.'%')
+                    ->orWhere('hall','LIKE','%'.$searchTerm.'%')
+                    ->orWhere('Description','LIKE','%'.$searchTerm.'%');
                     $data['products'] = $query->get();
                      
                     return view('frontend.result',$data);
