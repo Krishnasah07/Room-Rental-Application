@@ -27,6 +27,8 @@ Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Subm
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
 
+    // Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //
+
     // System Setting Route
     Route::resource('system-setting','Systemcontroller');
 });
@@ -54,4 +56,7 @@ Route::group(['prefix'=>'landlord'],function(){
     Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //Delete category
     Route::get('Rooms/Category/Edit/{id}','CategoryConteroller@catedit')->name('Room.Category.Edit');  //Edit category   
     Route::post('Room/Category/Update/{id}','CategoryConteroller@catupdate')->name('Update.Room.Category');  //Insert Category Data
+
+    // Mail to Room reserver i.e Renter
+    Route::post('Room/Reserve/{id}','Reservecontroller@reserve')->name('Room.Reserve.Order');  //
 });
