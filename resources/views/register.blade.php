@@ -17,25 +17,37 @@
          <div>{{$error}}</div>
      @endforeach
  @endif
- <form action="{{ route('admin.login.submit') }}" method="POST">
+ <form action="{{ route('register.submit') }}" method="POST">
     @csrf
-    <div class="login-container">
-    <div class="login-header">
-        <h1>Login</h1>
+    <div class="register-container">
+    <div class="register-header">
+        <h1>Register</h1>
     </div>
-    <div class="login-form">
+    <div class="register-form">
         <div class="form-group">
-            <input type="email" id="email" class="wrap" name="email" required placeholder="E-MAIL">
+            <input type="text" id="name" class="wrap" name="name" required placeholder="NAME" value="{{ old('name') }}">
         </div>
-        <div class="form-group" >
+        <div class="form-group">
+            <input type="email" id="email" class="wrap" name="email" required placeholder="E-MAIL" value="{{ old('email') }}">
+        </div>
+        <div class="form-group">
+            <input type="text" id="mobile" class="wrap" name="mobile" required placeholder="MOBILE" value="{{ old('mobile') }}">
+        </div>
+        <div class="form-group">
             <input type="password" id="password" class="wrap" name="password" required placeholder="PASSWORD">
         </div>
-        <div class="form-group">
-            <button type="submit">Login</button>
+        <div>
+            <p>Are You ?</p>
+        <div class="radio-group">
+            <label><input type="radio" name="role" value="landlord" > Landlord</label>
+            <label><input type="radio" name="role" value="renter" checked> Renter</label>
         </div>
-    </div>
-        <!-- New "Don't have an account / Register" link -->
-        <p Align="Center">Don't have an account?</p><a href="{{ route('register.page')}}" class="register-link"> Register</a>
+        </div>
+        <br>
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+        <p>Already have an account? <a href="{{ route('login.page')}}" onclick="toggleForms()">Login</a></p>
     </div>
 </div>
 
