@@ -160,15 +160,12 @@
         <div class="col">
       
                 <div style="border-radius: 30px;" class="card">
-                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$prod->image }}" class="card-img-top" alt="...">
+                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$prod->image }}" class="card-img-top" alt="Image Missing">
                     <div class="card-body">
                         <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
                         <p class="card-text">
-                          No. of Hall : {{ $prod->hall }}<br>
-                          No. of Rooms : {{ $prod->room }}<br>
-                          No. of Kitchen : {{ $prod->kitchen }}<br>
-                          No. of Bathroom : {{ $prod->bathroom }}<br>
-                          Please contact us to get the room or flat <br>Number : <u>{{ $prod->phone }}</u>
+                          No. of Hall : {{ $prod->Description }}<br>
+                         
                         </p>
                     </div>
                     <div class="mb-5 d-flex justify-content-around">

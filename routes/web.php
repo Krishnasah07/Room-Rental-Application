@@ -13,7 +13,7 @@ Route::get('/', function (){
 });
 
 // View Room details Route
-Route::get('Room/Details','FrontendController@roomdetails')->name('details');
+Route::get('Room/Details/{id}','FrontendController@roomdetails')->name('details');
 
 
 // login and Register Route
