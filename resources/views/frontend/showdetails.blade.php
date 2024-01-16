@@ -113,7 +113,6 @@
   <!-- main content starts -->
   <section>
   <div class="product-container">
-
         <div class="product-images">
             <div class="product-image">
                 <img src="{{ asset('Room_Images').'/'.$product->image }}" alt="Product Image 1">
