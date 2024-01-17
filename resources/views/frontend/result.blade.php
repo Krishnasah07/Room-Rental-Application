@@ -153,26 +153,25 @@
     <!-- ======= Content Section ======= -->
     <section id="contents" class="">
     <div class="container py-5">
-      
-    @forelse($categories as $cat)
-        <h1 class="text-center"><b>{{ $cat->category_name}}</b></h1>
+    
+        <h1 class="text-center"><b></b></h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">       
         
-        @forelse($cat->products as $prod)
+        @forelse($products as $product)
         <div class="col">
       
                 <div style="border-radius: 30px;" class="card">
-                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$prod->image }}" class="card-img-top" alt="Image Missing">
+                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$product->image }}" class="card-img-top" alt="Image Missing">
                     <div class="card-body">
-                        <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
+                        <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $product->location}}</b></h5>
                         <p class="card-text">
-                          No. of Hall : {{ $prod->Description }}<br>
+                          No. of Hall : {{ $product->Description }}<br>
                          
                         </p>
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
-                        <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $prod->price }} </u></h3>
-                        <a href="{{ route('details', $prod->id) }}"  target="_blank" >
+                        <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $product->price }} </u></h3>
+                        <a href="{{ route('details', $product->id) }}"  target="_blank" >
                           <button style="border-radius: 50px;" class="btn btn-primary hv"> View Details</button>
                         </a>
                     </div>
@@ -181,8 +180,7 @@
         @empty 
         @endforelse       
         </div>
-        @empty
-        @endforelse 
+      
     </div>
           </section>
 
