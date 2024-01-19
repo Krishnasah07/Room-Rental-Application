@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Roomie ~ Place to find suitable room for you</title>
+  <title>Room Renatal ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Bootstrap 4 CDN  -->
@@ -99,11 +99,10 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   @include('frontend.common.header')
   <!-- End Header -->
-  
+
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
     <div class="p-content flex">
@@ -113,7 +112,7 @@
             <span class="js-count-particles">
                 <div class="carousel-item active">
                   <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>{{$systems->name}}</span></h2>
+                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Roomie</span></h2>
                     <div class="box">
                        <form action='{{ route("frontend.search")}}' method='get'>
                         @csrf
@@ -154,26 +153,25 @@
     <!-- ======= Content Section ======= -->
     <section id="contents" class="">
     <div class="container py-5">
-      
-    @forelse($categories as $cat)
-        <h1 class="text-center"><b>{{ $cat->category_name}}</b></h1>
+    
+        <h1 class="text-center"><b></b></h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">       
         
-        @forelse($cat->products as $prod)
+        @forelse($products as $product)
         <div class="col">
       
                 <div style="border-radius: 30px;" class="card">
-                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$prod->image }}" class="card-img-top" alt="Image Missing">
+                    <img style="border-radius: 50px;" src="{{ asset('Room_Images').'/'.$product->image }}" class="card-img-top" alt="Image Missing">
                     <div class="card-body">
-                        <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
+                        <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $product->location}}</b></h5>
                         <p class="card-text">
-                          No. of Hall : {{ $prod->Description }}<br>
+                          No. of Hall : {{ $product->Description }}<br>
                          
                         </p>
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
-                        <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $prod->price }} </u></h3>
-                        <a href="{{ route('details', $prod->id) }}"  target="_blank" >
+                        <h3 style="color:rgb(0, 91, 228);" >Rs. <u>{{ $product->price }} </u></h3>
+                        <a href="{{ route('details', $product->id) }}"  target="_blank" >
                           <button style="border-radius: 50px;" class="btn btn-primary hv"> View Details</button>
                         </a>
                     </div>
@@ -182,8 +180,7 @@
         @empty 
         @endforelse       
         </div>
-        @empty
-        @endforelse 
+      
     </div>
           </section>
 
@@ -264,19 +261,19 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>{{$systems->address}}</p>
+                <p>Powerhouse Chowk , Birgunj</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{$systems->email}}</p>
+                <p>roomrental@business.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+977 {{$systems->phone}}</p>
+                <p>+977 9824763769</p>
               </div>
 
             </div>
@@ -339,6 +336,7 @@
 
   <!-- Bootstrap 4 CDN  js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

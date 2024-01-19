@@ -8,7 +8,7 @@ use App\Systemsetting;
 Route::get('/', function (){
     $data['systems'] = Systemsetting::find(1);
     $data['categories'] = Category::with('products')->get();
-    // $_SESSION['setting'] = $data['system'];
+    $_SESSION['setting'] = $data['system'];
     return view('frontend.index',$data);
     });
 
@@ -28,7 +28,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout.all');
 
 
 //search
-Route::get('/search','CategoryConteroller@search')->name('frontend.search');
+Route::get('search','CategoryConteroller@search')->name('frontend.search');
 
 // Contact US Route
 Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Submit');
