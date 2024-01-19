@@ -6,13 +6,14 @@ use App\Systemsetting;
 
 // Frontend All Routes i.e Main page all routes
 Route::get('/', function (){
-    $data['system'] = Systemsetting::find(1);
+    $data['systems'] = Systemsetting::find(1);
     $data['categories'] = Category::with('products')->get();
     // $_SESSION['setting'] = $data['system'];
     return view('frontend.index',$data);
-});
+    });
 
 // View Room details Route
+
 Route::get('Room/Details/{id}','FrontendController@roomdetails')->name('details');
 
 
@@ -21,6 +22,10 @@ Route::view('/login','login')->name('login.page');
 Route::get('/register','RegisterController@index')->name('register.page');
 Route::post('/register','RegisterController@register')->name('register.submit');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
+
+// Logout Route
+Route::get('/logout', 'LoginController@logout')->name('logout.all');
+
 
 //search
 Route::get('/search','CategoryConteroller@search')->name('frontend.search');
@@ -31,6 +36,11 @@ Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Subm
 // group of admin routes
 Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
+
+    // Admin settings
+    Route::resource('settings','Adminsettings');
+    Route::get('/new/admin','FrontendController@newadmin')->name('new.admin');
+
 
     // Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //
 

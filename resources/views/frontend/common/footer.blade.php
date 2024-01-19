@@ -1,7 +1,7 @@
 <footer id="footer">
     <div class="container">
-      <h3>Roomie</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <h3>{{$systems->name}}</h3>
+      <p>{{$systems->slogan}}.</p>
       <!-- <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -10,7 +10,7 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div> -->
       <div class="copyright">
-        &copy; Copyright <a href="{{ url('/') }}"><strong><span>Roomie</span></strong></a>. All Rights Reserved
+        &copy; Copyright <a href="{{ url('/') }}"><strong><span>{{$systems->name}}</span></strong></a>. All Rights Reserved
       </div>
       <div class="credits">
         Designed by <a href="{{ url('/') }}">Roomie</a>

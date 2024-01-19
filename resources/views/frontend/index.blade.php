@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Room Renatal ~ Place to find suitable room for you</title>
+  <title>Roomie ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Bootstrap 4 CDN  -->
@@ -99,10 +99,11 @@
 </head>
 
 <body>
+
   <!-- ======= Header ======= -->
   @include('frontend.common.header')
   <!-- End Header -->
-
+  
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
     <div class="p-content flex">
@@ -112,7 +113,7 @@
             <span class="js-count-particles">
                 <div class="carousel-item active">
                   <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Roomie</span></h2>
+                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>{{$systems->name}}</span></h2>
                     <div class="box">
                        <form action='{{ route("frontend.search")}}' method='get'>
                         @csrf
@@ -263,19 +264,19 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Powerhouse Chowk , Birgunj</p>
+                <p>{{$systems->address}}</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>roomrental@business.com</p>
+                <p>{{$systems->email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+977 9824763769</p>
+                <p>+977 {{$systems->phone}}</p>
               </div>
 
             </div>
@@ -338,7 +339,6 @@
 
   <!-- Bootstrap 4 CDN  js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

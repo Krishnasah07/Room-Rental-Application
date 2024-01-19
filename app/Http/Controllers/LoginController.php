@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session ;
 use App\Systemsetting;
 class LoginController extends Controller
 {
@@ -24,20 +25,20 @@ class LoginController extends Controller
                     Auth::login($user);
                       $userRoles = Auth::user()->role;
                     switch ($userRoles) {
-                        case 'admin':
+                        case 'Admin':
                             return redirect()->route('admin.dashboard');
                             break;
                     
-                        case 'landlord':
+                        case 'Landlord':
                             return redirect()->route('landlord.dashboard');
                             break;
                     
-                        case 'renter':
+                        case 'Renter':
                             return redirect()->route('renter.dashboard');
                             break;
                     
                         default:
-                            return redirect()->route('home');
+                            return redirect()->back();
                     }
                 }
                 $request->session()->flash('error','Incorrect Password');
@@ -52,5 +53,11 @@ class LoginController extends Controller
         $system_setting = Systemsetting::find(1);
         $_SESSION['setting'] = $system_setting;
         return view('backend.dashboard.admin.index', compact('system_setting'));
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login.page');
     }
 }

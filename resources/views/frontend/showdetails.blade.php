@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Room Renatal ~ Place to find suitable room for you</title>
+  <title>Roomie ~ Place to find suitable room for you</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <!-- Bootstrap 4 CDN  -->
@@ -91,7 +91,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="{{ url('/') }}">Roomie</a></h1>
+        <h1><a href="{{ url('/') }}"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo
         <a href="index.html"><img src="{{ asset('frontend/img/logo.png') }}" alt="kkhkj" class="img-fluid"></a> -->
       </div>
@@ -173,7 +173,7 @@
 </body>
   
   <!-- ======= Footer ======= -->
-  @include('frontend.common.footer')
+  
   <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

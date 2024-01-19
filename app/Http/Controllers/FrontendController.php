@@ -29,4 +29,8 @@ class FrontendController extends Controller
         }
     }
 
+    public function newadmin(){
+        return view('backend.dashboard.admin.settings.nawadmin');
+    }
+
 }
