@@ -96,8 +96,8 @@ class CategoryConteroller extends Controller
 
         $searchTerm = $request->search;
         $query = Product::query();
-        $data['system'] = Systemsetting::find(1);
-        $_SESSION['setting'] = $data['system'];
+        $data['systems'] = Systemsetting::find(1);
+        $_SESSION['setting'] = $data['systems'];
         if($searchTerm){
             $query-> where('location','LIKE','%'.$searchTerm.'%')
                     ->orWhere('price','LIKE','%'.$searchTerm.'%')
