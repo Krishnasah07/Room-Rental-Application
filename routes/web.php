@@ -22,6 +22,7 @@ Route::view('/login','login')->name('login.page');
 Route::get('/register','RegisterController@index')->name('register.page');
 Route::post('/register','RegisterController@register')->name('register.submit');
 Route::post('/submit','LoginController@login')->name('admin.login.submit');
+Route::post('/homelogin','LoginController@checklogin')->name('login.submit');
 
 // Logout Route
 Route::get('/logout', 'LoginController@logout')->name('logout.all');
