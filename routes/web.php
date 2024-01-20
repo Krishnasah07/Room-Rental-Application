@@ -55,7 +55,7 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
 
     // Room Details All Routes
-    Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
+    Route::get('Room/Details','ProductConteroller@showUserRooms')->name('Room.Details');  //view category
     Route::get('Room/Details/Add','ProductConteroller@addroomview')->name('Room.Details.View');  //Add Room Category
     Route::post('Room/Detail/Add','ProductConteroller@create')->name('Add.Room.Details');  //Insert Room Data 
     Route::get('Room/Details/Delete/{id}','ProductConteroller@roomdelete')->name('Room.Details.Delete');  //Delete Room details

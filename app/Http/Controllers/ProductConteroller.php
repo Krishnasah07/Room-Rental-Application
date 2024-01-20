@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\category;
 use App\Product;
 
@@ -99,4 +100,15 @@ class ProductConteroller extends Controller
             return redirect()->back();
         }
     }
+
+    public function showUserRooms()
+{
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Retrieve rooms associated with the user
+    $rooms = Product::where('landlord_id', $user->id)->get();
+
+    return view('backend.dashboard.landlord.Room.roomdetails', compact('rooms'));
+}
 }
