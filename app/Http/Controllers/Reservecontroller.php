@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Product;
+use App\Reserve;
+use App\User;
 
 // use App\Reserve;
 // use App\Product;
@@ -13,29 +17,59 @@ use App\Http\Controllers\Controller;
 class Reservecontroller extends Controller
 {
     public function reserve(Request $request,$id){
-        dd($request->all());
-        if(!$id){
-            return redirect()->back();
-        }
+        if($ids = $user = Auth::id()){
+            $role = User::find($user);
+            if($role->role == 'Renter'){
+                $product = Product::find($id);
+                $P_id = $product->id;
+                $orderNo = rand(10,999999999999999);
 
-        $product = Product::find($id);
-        $data['system'] = Systemsetting::find(1);
-        $_SESSION['setting'] = $data['system'];
-        $orderNo = rand(10,999999999999999);
-        if($product){
-            $data = [
-                'order_no' => $orderNo,
-                'user_id' => auth()->user()->id,
-                'product_id' => $id,
-            ];
+                $data =[
+                    'order_no' => $orderNo,
+                    'product_id'=>$P_id,
+                    'user_id'=>Auth::id()
+                ];
 
-            $reserve = Reserve::create($data);
+                  Reserve::insert($data);
 
-            if($reserve){
-                $to = auth()->user()->email;
-                ReserveMail::to()->send(new ReserveMail($reserve));
+                $product = Reserve::find($ids);
+                dd($ids);
+                return redirect()->route('renter.dashboard');
+
+            }else{
+                return redirect()->back();
             }
+           
+        }else{
+            return redirect('login.page');            
         }
 
+        // die;
+        // if(Auth::id()){
+            // $product = Product::find($id);
+            // $P_id = $product->id;
+            // $orderNo = rand(10,999999999999999);
+
+            // $data =[
+            //     'order_no' => $orderNo,
+            //     'product_id'=>$P_id,
+            //     'user_id'=>Auth::id()
+            // ];
+
+        //     // print_r($data);
+        //     // die;
+            
+        //     Reserve::insert($data);
+        //     return redirect()->back();
+            
+        // }
+        // else{
+        //     return redirect('login.page');            
+        // }
     }
+
+
+
+
+    public function index(Request $request,$id){}
 }

@@ -39,8 +39,8 @@
         <div>
             <p>Are You ?</p>
         <div class="radio-group">
-            <label><input type="radio" name="role" value="landlord" > Landlord</label>
-            <label><input type="radio" name="role" value="renter" checked> Renter</label>
+            <label><input type="radio" name="role" value="Landlord" > Landlord</label>
+            <label><input type="radio" name="role" value="Renter" checked> Renter</label>
         </div>
         </div>
         <br>

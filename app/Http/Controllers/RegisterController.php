@@ -21,7 +21,7 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users',
             'mobile' => 'required|max:14',
             'password' => 'required|min:6',
-            'role' => 'required|in:renter,landlord',
+            'role' => 'required|in:Renter,Landlord',
         ]);
 
         // Create a new user

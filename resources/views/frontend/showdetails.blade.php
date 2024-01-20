@@ -126,8 +126,6 @@
         </div>
 
         <div class="product-description">
-           <from action="{{ route('Room.Reserve.Order' , $product->id) }}" method="POST">
-            @csrf
            <h2>{{ $product->location}} </h2>
                     <div class="table-responsive">
                       <table class="table">
@@ -164,10 +162,13 @@
                       </table>
                     </div>
           </div> <br/>
-        <button class="btn btn-outline-secondary btn-fw"> Rs. {{ $product->price }}  </button>
-        
-          <button type="submit" class="btn btn-success"> Reserve Now </button>         
-          </form>
+          <form action="{{ route('Room.Reserve.Order',$product->id) }}" method="POST">
+            @csrf
+            <button class="btn btn-outline-secondary btn-fw"> Rs. {{ $product->price }}  </button>
+            <a href="">
+              <button type="submit" class="btn btn-success"> Reserve Now </button>
+            </a> 
+          </form>        
        </div>
     <section>
 </body>

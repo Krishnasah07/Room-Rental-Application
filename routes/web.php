@@ -8,7 +8,7 @@ use App\Systemsetting;
 Route::get('/', function (){
     $data['systems'] = Systemsetting::find(1);
     $data['categories'] = Category::with('products')->get();
-    $_SESSION['setting'] = $data['system'];
+    $_SESSION['setting'] = $data['systems'];
     return view('frontend.index',$data);
     });
 
@@ -48,10 +48,6 @@ Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     Route::resource('system-setting','Systemcontroller');
 });
 
-// group of renter routes
-Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
-    Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
-});
 
 // group of landlord routes
 Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
@@ -74,4 +70,11 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
 
     // Mail to Room reserver i.e Renter
     Route::post('Room/Reserve/{id}','Reservecontroller@reserve')->name('Room.Reserve.Order');  //
+});
+
+
+// group of renter routes
+Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
+    Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
+    // backend.renter.common.index
 });

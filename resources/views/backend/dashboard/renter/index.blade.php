@@ -9,43 +9,34 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>
-                              <div class="form-check form-check-muted m-0">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input">
-                                <i class="input-helper"></i></label>
-                              </div>
-                            </th>
-                            <th> Client Name </th>
-                            <th> Order No </th>
-                            <th> Product Cost </th>
-                            <th> Project </th>
-                            <th> Payment Mode </th>
+                            <th>Room Owner Name </th>
+                            <th> Contact No</th>
+                            <th> Reserve No </th>
+                            <th> Room Image </th>
+                            <th> Room Cost </th>
                             <th> Start Date </th>
-                            <th> Payment Status </th>
+                            <th> Reserve Status </th>
+                            <th> Action </th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                           <tr>
-                            <td>
-                              <div class="form-check form-check-muted m-0">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input">
-                                <i class="input-helper"></i></label>
-                              </div>
-                            </td>
                             <td>
                               <span class="pl-2">Henry Klein</span>
                             </td>
+                            <td> 98020202 </td>
                             <td> 02312 </td>
+                            <td> img </td>
                             <td> $14,500 </td>
-                            <td> Dashboard </td>
-                            <td> Credit card </td>
                             <td> 04 Dec 2019 </td>
                             <td>
-                              <div class="badge badge-outline-success">Approved</div>
+                              <div class="badge badge-outline-warning"> Pending </div>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-danger"> Cancel </button>
                             </td>
                           </tr>
+                        
                         </tbody>
                       </table>
                     </div>
