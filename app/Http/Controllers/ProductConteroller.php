@@ -44,8 +44,12 @@ class ProductConteroller extends Controller
                    $images[$imageKey] = $newName;
                }
            }
+        
+           $landlord_id = auth()->user()->id; // Get the authenticated landlord's ID
+
     }
         $data = [
+        'landlord_id' => $landlord_id, // Save the user ID in the data array
          'category_id' =>$request->category_id,
          'location' =>$request->location,
          'price' =>$request->price,
