@@ -13,7 +13,7 @@ class AlterDescriptionToProducts extends Migration
      */
     public function up()
     {
-        Schema::table('Products', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             $table->string('Description')->nullable();
         });
     }

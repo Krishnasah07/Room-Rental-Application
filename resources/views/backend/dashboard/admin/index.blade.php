@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         </div>
-        @dd($products);
+
             <div class="row">
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
                 <div class="card">
@@ -85,7 +85,7 @@
                   </div>
                 </div>
               </div>
-            </div>            
+            </div>
             <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -117,7 +117,7 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
             <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -149,8 +149,8 @@
                   </div>
                 </div>
               </div>
-            </div>  
-         
+            </div>
+
             <div class="row">
               <div class="col-12">
                 <div class="card"></div>
