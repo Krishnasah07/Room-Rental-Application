@@ -19,10 +19,10 @@
                             <th> Action </th>
                           </tr>
                         </thead>
-                        <tbody> 
+                        <tbody>
                           @forelse($reserves as $reserve)
                           <tr>
-                            <td>{{ $reserve->user_id }}</td>
+                            <td>{{ $reserve->owner->name ?? '' }}</td>
                             <td></td>
                             <td>{{ $reserve->order_no }}</td>
                             <td></td>
@@ -32,7 +32,7 @@
                             <td><button type="button" class="btn btn-outline-danger btn-fw">Cancel</button></td>
                           </tr>
                           @empty
-                          @endforelse                        
+                          @endforelse
                         </tbody>
                       </table>
                     </div>

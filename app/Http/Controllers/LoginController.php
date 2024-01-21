@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function login(Request $request){
 
-        
+
         $request->validate([
             'email' => 'required | email',
             'password' => 'required | min:6'
@@ -31,16 +31,16 @@ class LoginController extends Controller
 
                             return redirect()->route('admin.dashboard');
                             break;
-                    
+
                         case 'Landlord':
-                            
+
                             return redirect()->route('landlord.dashboard');
                             break;
-                    
+
                         case 'Renter':
                             return redirect()->route('renter.dashboard');
                             break;
-                    
+
                         default:
                             return redirect()->back();
                     }
@@ -74,18 +74,18 @@ class LoginController extends Controller
     //       case 'Admin':
     //           return redirect()->route('admin.dashboard');
     //           break;
-      
+
     //       case 'Landlord':
     //           return redirect()->route('landlord.dashboard');
     //           break;
-      
+
     //       case 'Renter':
     //           return redirect()->route('renter.dashboard');
     //           break;
-      
+
     //       default:
     //           return redirect()->back();
-    //   }   
+    //   }
     // }
 
 }

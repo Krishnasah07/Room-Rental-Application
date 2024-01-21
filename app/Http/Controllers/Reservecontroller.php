@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReserveMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Reserve;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 // use App\Reserve;
 // use App\Product;
@@ -32,17 +34,15 @@ class Reservecontroller extends Controller
                 ];
 
                   Reserve::insert($data);
-
-               
-                // dd($ids);
+                  Mail::to(\auth()->user()->email)->send(new ReserveMail($orderNo, $product));
                 return redirect()->route('renter.dashboard');
 
             }else{
                 return redirect()->back();
             }
-           
+
         }else{
-            return redirect('login.page');            
+            return redirect('login.page');
         }
 
         // die;
@@ -59,20 +59,21 @@ class Reservecontroller extends Controller
 
         //     // print_r($data);
         //     // die;
-            
+
         //     Reserve::insert($data);
         //     return redirect()->back();
-            
+
         // }
         // else{
-        //     return redirect('login.page');            
+        //     return redirect('login.page');
         // }
     }
 
     public function index(){
-        $id = session()->get('id');
-        $data['reserves'] = Reserve::where('user_id',$id)->get();      
+        $id = auth()->user()->id;
+        $data['reserves'] = Reserve::with('owner')->where('user_id',$id)->get();
+
         return view('backend.dashboard.renter.index',$data);
     }
-   
+
 }

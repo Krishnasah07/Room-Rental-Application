@@ -15,4 +15,9 @@ class Reserve extends Model
         return $this->belongsTo(User::class,'user_id', 'id');
         return $this->belongsTo(Product::class,'product_id', 'id');
     }
+
+    public function owner()
+    {
+        return $this->hasOne(User::class, 'id','user_id');
+    }
 }

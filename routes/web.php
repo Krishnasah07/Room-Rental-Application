@@ -76,7 +76,7 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
 
 // group of renter routes
 Route::group(['prefix'=>'renter'],function(){
-    Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
+    Route::get('dashboard','Reservecontroller@index')->name('renter.dashboard');
     // backend.renter.common.index
 });
 
