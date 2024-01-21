@@ -24,12 +24,16 @@ class LoginController extends Controller
                 if(Hash::check($request->password, $user->password)){
                     Auth::login($user);
                       $userRoles = Auth::user()->role;
+                      $userid = Auth::user()->id;
+                      $request = session()->put('id',Auth::user()->id);
                     switch ($userRoles) {
                         case 'Admin':
+
                             return redirect()->route('admin.dashboard');
                             break;
                     
                         case 'Landlord':
+                            
                             return redirect()->route('landlord.dashboard');
                             break;
                     
@@ -57,31 +61,31 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        Session::flush();
+        session::flush();
         return redirect()->route('login.page');
     }
 
 
 
-    public function checklogin(){
-        Auth::login($user);
-        $userRoles = Auth::user()->role;
-      switch ($userRoles) {
-          case 'Admin':
-              return redirect()->route('admin.dashboard');
-              break;
+    // public function checklogin(){
+    //     Auth::login($user);
+    //     $userRoles = Auth::user()->role;
+    //   switch ($userRoles) {
+    //       case 'Admin':
+    //           return redirect()->route('admin.dashboard');
+    //           break;
       
-          case 'Landlord':
-              return redirect()->route('landlord.dashboard');
-              break;
+    //       case 'Landlord':
+    //           return redirect()->route('landlord.dashboard');
+    //           break;
       
-          case 'Renter':
-              return redirect()->route('renter.dashboard');
-              break;
+    //       case 'Renter':
+    //           return redirect()->route('renter.dashboard');
+    //           break;
       
-          default:
-              return redirect()->back();
-      }   
-    }
+    //       default:
+    //           return redirect()->back();
+    //   }   
+    // }
 
 }

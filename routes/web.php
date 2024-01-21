@@ -79,3 +79,13 @@ Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
     Route::view('dashboard','backend.dashboard.renter.index')->name('renter.dashboard');
     // backend.renter.common.index
 });
+
+Route::get('set',function(){
+    $session = session()->get('id');
+    print_r($session);
+});
+
+Route::get('/count', function (){
+    dd($products);
+    
+    });

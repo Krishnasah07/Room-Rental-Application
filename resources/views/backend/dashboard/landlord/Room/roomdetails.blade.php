@@ -1,6 +1,7 @@
 @extends('backend.dashboard.landlord.layouts.master')
 @section('content')
 <div class="col-lg-12 grid-margin stretch-card">
+  @dd($rooms);
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Room Details</h4>

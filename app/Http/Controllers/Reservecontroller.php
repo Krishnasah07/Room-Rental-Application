@@ -17,6 +17,7 @@ use App\User;
 class Reservecontroller extends Controller
 {
     public function reserve(Request $request,$id){
+        // dd($id);
         if($ids = $user = Auth::id()){
             $role = User::find($user);
             if($role->role == 'Renter'){
@@ -33,7 +34,7 @@ class Reservecontroller extends Controller
                   Reserve::insert($data);
 
                 $product = Reserve::find($ids);
-                dd($ids);
+                // dd($ids);
                 return redirect()->route('renter.dashboard');
 
             }else{
@@ -67,9 +68,6 @@ class Reservecontroller extends Controller
         //     return redirect('login.page');            
         // }
     }
-
-
-
 
     public function index(Request $request,$id){}
 }

@@ -45,7 +45,12 @@
             padding: 20px;
             background: #f9f9f9;
             border-radius: 10px;
+            transition: 0.6s;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .hv:hover{
+            transition: 0.6s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
         .product-images {
@@ -112,7 +117,7 @@
 
   <!-- main content starts -->
   <section>
-  <div class="product-container">
+  <div class="product-container hv">
         <div class="product-images">
             <div class="product-image">
                 <img src="{{ asset('Room_Images').'/'.$product->image }}" alt="Product Image 1">

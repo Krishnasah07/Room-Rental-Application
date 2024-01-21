@@ -14,11 +14,11 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           @if(!auth()->check())
-          <li><a class="nav-link scrollto " href="{{ route('login.page') }}">Login / Register</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('login.page') }}">Login / Register</a></li>
           @endif
           <form action="{{ route('login.submit') }}" method="POST">
           @if(auth()->check())
-          <li><button type="submit" class="nav-link scrollto ">Hello, {{ auth()->user()->name }}  </button></li>
+          <li><a type="submit" class="nav-link scrollto ">Hello, {{ auth()->user()->name }}  </a></li>
           @endif
           </form>
         
