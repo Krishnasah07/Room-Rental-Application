@@ -33,7 +33,7 @@ class Reservecontroller extends Controller
 
                   Reserve::insert($data);
 
-                $product = Reserve::find($ids);
+               
                 // dd($ids);
                 return redirect()->route('renter.dashboard');
 
@@ -69,5 +69,10 @@ class Reservecontroller extends Controller
         // }
     }
 
-    public function index(Request $request,$id){}
+    public function index(){
+        $id = session()->get('id');
+        $data['reserves'] = Reserve::where('user_id',$id)->get();      
+        return view('backend.dashboard.renter.index',$data);
+    }
+   
 }

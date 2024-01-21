@@ -20,23 +20,19 @@
                           </tr>
                         </thead>
                         <tbody> 
+                          @forelse($reserves as $reserve)
                           <tr>
-                            <td>
-                              <span class="pl-2">Henry Klein</span>
-                            </td>
-                            <td> 98020202 </td>
-                            <td> 02312 </td>
-                            <td> img </td>
-                            <td> $14,500 </td>
-                            <td> 04 Dec 2019 </td>
-                            <td>
-                              <div class="badge badge-outline-warning"> Pending </div>
-                            </td>
-                            <td>
-                              <button class="btn btn-outline-danger"> Cancel </button>
-                            </td>
+                            <td>{{ $reserve->user_id }}</td>
+                            <td></td>
+                            <td>{{ $reserve->order_no }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button type="button" class="btn btn-outline-danger btn-fw">Cancel</button></td>
                           </tr>
-                        
+                          @empty
+                          @endforelse                        
                         </tbody>
                       </table>
                     </div>
