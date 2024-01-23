@@ -7,9 +7,11 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session ;
+use Illuminate\Support\Facades\Cookie;
 use App\Systemsetting;
 class LoginController extends Controller
 {
+    
     public function login(Request $request){
 
 
@@ -61,7 +63,8 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        session::flush();
+        Session::flush();
+        $cookie = \Cookie::forget('myCookie');
         return redirect()->route('login.page');
     }
 

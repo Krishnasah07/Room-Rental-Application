@@ -22,11 +22,19 @@
             <span class="nav-link">Here </span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('renter.dashboard') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li><br/>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('renter.trash') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Your Trash</span>
             </a>
           </li>
 

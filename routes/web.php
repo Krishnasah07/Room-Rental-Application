@@ -75,8 +75,10 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
 
 
 // group of renter routes
-Route::group(['prefix'=>'renter'],function(){
+Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
     Route::get('dashboard','Reservecontroller@index')->name('renter.dashboard');
+    Route::get('Trash','Trashcontroller@index')->name('renter.trash');
+ 
     // backend.renter.common.index
 });
 
@@ -89,3 +91,5 @@ Route::get('/count', function (){
     dd($products);
 
     });
+
+
