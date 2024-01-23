@@ -13,7 +13,7 @@ class Reserve extends Model
 
     public function reserves(){
         return $this->belongsTo(User::class,'user_id', 'id');
-        return $this->belongsTo(Product::class,'product_id', 'id');
+        // return $this->belongsTo(Product::class,'product_id', 'id');
     }
 
     public function owner()
