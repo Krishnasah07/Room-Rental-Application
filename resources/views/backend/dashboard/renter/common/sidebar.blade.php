@@ -30,7 +30,7 @@
             </a>
           </li><br/>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ route('renter.trash') }}">
+            <a class="nav-link" href="{{ route('Room.Reservation.Trash') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>

@@ -21,15 +21,19 @@
                         </thead>
                         <tbody>
                           @forelse($reserves as $reserve)
-                          <tr>
-                            <td>{{ $reserve->owner->name ?? '' }}</td>
-                            <td></td>
+                          <tr class="text-white">
+                            <td>{{ $reserve->owner->name}}</td>
+                            <td>{{ $reserve->productinfo->phone}}</td>
                             <td>{{ $reserve->order_no }}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-outline-danger btn-fw">Cancel</button></td>
+                            <td><img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image }} " height="200px" width="200px"></td>
+                            <td>{{ $reserve->productinfo->price}}</td>
+                            <td>{{ $reserve->created_at}}</td>
+                            <td>1</td> 
+                            <td>
+                              <a href="{{ route('Room.Reservation.Delete',$reserve->id) }}">
+                                <button type="button" class="btn btn-outline-danger btn-fw">Cancel Reservation</button>
+                              </a>
+                            </td>
                           </tr>
                           @empty
                           @endforelse

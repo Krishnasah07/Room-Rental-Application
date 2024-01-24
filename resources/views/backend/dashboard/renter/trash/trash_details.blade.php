@@ -15,28 +15,35 @@
                             <th> Room Image </th>
                             <th> Room Cost </th>
                             <th> Start Date </th>
+                            <th> Reserve Status </th>
                             <th> Action </th>
                           </tr>
                         </thead>
                         <tbody>
-                          
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                          @forelse($reserves as $reserve)
+                          <tr class="text-white">
+                            <td>{{ $reserve->owner->name}}</td>
+                            <td>{{ $reserve->productinfo->phone}}</td>
+                            <td>{{ $reserve->order_no }}</td>
+                            <td><img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image }} " height="200px" width="200px"></td>
+                            <td>{{ $reserve->productinfo->price}}</td>
+                            <td>{{ $reserve->created_at}}</td>
+                            <td>1</td>
                             <td>
-                                <a>
-                                    <button type="button" class="btn btn-primary btn-rounded btn-fw">Re-Store</button>
-                                </a><br/><br/>
-                                <a>
-                                    <button type="button" class="btn btn-danger btn-rounded btn-fw">Delete</button>
-                                </a>
-                            </td>
+                              <a href="{{ route('Room.Reservation.Restore',$reserve->id) }}">
+                                <button type="button" class="btn btn-primary btn-rounded btn-fw">Re-Store</button>
+                              </a>
+                              <br/><br/>
+                              <a href="{{ route('Room.Reservation.Force.Delete',$reserve->id) }}">
+                                <button type="button" class="btn btn-danger btn-rounded btn-fw">Delete</button>
+                              </a>
+                            </td> 
                           </tr>
-                         
+                          @empty
+                          <tr>
+                            <td colspan="8" align="center" class="text-white"> NO Record in Your Trash ...</td>
+                          </tr>
+                          @endforelse
                         </tbody>
                       </table>
                     </div>
@@ -45,3 +52,4 @@
               </div>
             </div>
 @endsection
+

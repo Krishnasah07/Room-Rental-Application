@@ -17,7 +17,7 @@ class LoginController extends Controller
 
         $request->validate([
             'email' => 'required | email',
-            'password' => 'required | min:6'
+            'password' => 'required | min:6',
         ]);
         $user = User::where('email',$request->email)->first(); //finding user
 
@@ -61,7 +61,7 @@ class LoginController extends Controller
         return view('backend.dashboard.admin.index', compact('system_setting'));
     }
 
-    public function logout(){
+    public function logout(){    
         Auth::logout();
         Session::flush();
         $cookie = \Cookie::forget('myCookie');

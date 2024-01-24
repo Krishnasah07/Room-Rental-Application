@@ -76,10 +76,12 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
 
 // group of renter routes
 Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
-    Route::get('dashboard','Reservecontroller@index')->name('renter.dashboard');
-    Route::get('Trash','Trashcontroller@index')->name('renter.trash');
- 
-    // backend.renter.common.index
+    Route::get('dashboard','Reservecontroller@index')->name('renter.dashboard'); // View Reservation Details
+    Route::get('Room/Reservation/Delete/{id}','Reservecontroller@reservation_delete')->name('Room.Reservation.Delete');  //Delete Reservation Details
+    Route::get('trash','Reservecontroller@trash')->name('Room.Reservation.Trash'); //Room Reservation's Trash Details 
+    Route::get('Room/Reservation/Restore/{id}','Reservecontroller@trash_restore')->name('Room.Reservation.Restore');  //Restore Reservation Details from trash
+    Route::get('Room/Reservation/Permanent/Delete/{id}','Reservecontroller@trash_delete')->name('Room.Reservation.Force.Delete');  //Restore Reservation Details from trash
+     
 });
 
 Route::get('set',function(){
@@ -92,4 +94,5 @@ Route::get('/count', function (){
 
     });
 
+   
 
