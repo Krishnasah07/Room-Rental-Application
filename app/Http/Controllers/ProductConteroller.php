@@ -8,9 +8,10 @@ use App\Product;
 
 class ProductConteroller extends Controller
 {
-    public function index(){
 
-        $data['rooms'] = Product::paginate(5);
+    public function index(){
+        $id = session()->get('id');
+        $data['rooms'] = Product::where('landlord_id',$id)->get();      
         return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
 
@@ -20,55 +21,59 @@ class ProductConteroller extends Controller
         return view('backend.dashboard.landlord.Room.addroomsdetails',$data);
     }
 
-    public function create(Request  $request){
-
+    public function create(Request $request){
         $request->validate([
-            'location' => 'required',
-            'price' =>'required',
-            'status' => 'required',
-            'room' => 'required',
-            'category_id' => 'required',
-            'phone' => 'required',
-       ]);
+                        'location' => 'required',
+                        'price' =>'required',
+                        'status' => 'required',
+                        'room' => 'required',
+                        'category_id' => 'required',
+                        'phone' => 'required',
+                   ]);
+            
+                    $images = array();
+            
+                   if($files = $request->file('image') && is_array($request->file('image'))){
+            
+                       for ($i = 0; $i <= 2; $i++) {
+                           $imageKey = 'image' . $i;
+                           if ($request->file('image')[$i]) {
+                               $file =  $request->file('image')[$i];
+                               $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
+                               $newPath = public_path()."/Room_Images/";
+                               $file->move($newPath, $newName);
+                               $images[$imageKey] = $newName;
+                           }
+                       }
+                    
+                    //    $landlord_id = auth()->user()->id; // Get the authenticated landlord's ID
+                    // $session = session()->get('id');
+            
+                }
+                    $data = [
+                    'landlord_id' => session()->get('id'), // Save the user ID in the data array
+                     'category_id' =>$request->category_id,
+                     'location' =>$request->location,
+                     'price' =>$request->price,
+                     'room' =>$request->room,
+                     'hall' =>$request->hall,
+                     'kitchen' =>$request->kitchen,
+                     'bathroom' =>$request->bathroom,
+                     'phone' =>$request->phone,
+                     'status' =>$request->status,
+                     'image' =>$images['image0'] ?? "",
+                     'image2'=>$images['image1'] ?? "",
+                     'image3'=>$images['image2'] ?? ""
+                 ];
 
-        $images = array();
-
-       if($files = $request->file('image') && is_array($request->file('image'))){
-
-           for ($i = 0; $i <= 2; $i++) {
-               $imageKey = 'image' . $i;
-               if ($request->file('image')[$i]) {
-                   $file =  $request->file('image')[$i];
-                   $newName = time().'_'. rand(10,9999999999999).'_'.$file->getClientOriginalName();
-                   $newPath = public_path()."/Room_Images/";
-                   $file->move($newPath, $newName);
-                   $images[$imageKey] = $newName;
-               }
-           }
+                 Product::insert($data);
+                      return redirect()->route('Room.Details');
         
-           $landlord_id = auth()->user()->id; // Get the authenticated landlord's ID
+                //  dd($data);
 
     }
-        $data = [
-        'landlord_id' => $landlord_id, // Save the user ID in the data array
-         'category_id' =>$request->category_id,
-         'location' =>$request->location,
-         'price' =>$request->price,
-         'room' =>$request->room,
-         'hall' =>$request->hall,
-         'kitchen' =>$request->kitchen,
-         'bathroom' =>$request->bathroom,
-         'phone' =>$request->phone,
-         'status' =>$request->status,
-         'image' =>$images['image0'] ?? "",
-         'image2'=>$images['image1'] ?? "",
-         'image3'=>$images['image2'] ?? ""
-     ];
 
-     Product::insert($data);
-     return redirect()->route('Room.Details');
-    //  return redirect()->back();
-     }
+   
 
      // Delete Room Details
     public function roomdelete($id){
@@ -101,14 +106,3 @@ class ProductConteroller extends Controller
         }
     }
 
-    public function showUserRooms()
-{
-    // Get the authenticated user
-    $user = Auth::user();
-
-    // Retrieve rooms associated with the user
-    $rooms = Product::where('landlord_id', $user->id)->get();
-
-    return view('backend.dashboard.landlord.Room.roomdetails', compact('rooms'));
-}
-}

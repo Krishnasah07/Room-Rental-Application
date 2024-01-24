@@ -11,16 +11,18 @@ class ReserveMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $Reserve;
+    public $orderNo;
+    public $product;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($Reserve)
+    public function __construct($orderNo,$product)
     {
-        $this->Reserve = $Reserve;
+        $this->orderNo = $orderNo;
+        $this->product = $product;
     }
 
     /**
@@ -30,7 +32,10 @@ class ReserveMail extends Mailable
      */
     public function build()
     {
-        $this->reserve;
-        return $this->view('Reservemail.ReserveEmail')->subject('Room reserve details from Roomie ');
+       $data = [
+           'orderNo' => $this->orderNo,
+           'product' => $this->product
+       ];
+        return $this->view('Reservemail.ReserveEmail',$data)->subject('Room reserve details from Roomie');
     }
 }

@@ -92,6 +92,7 @@ class CategoryConteroller extends Controller
           return redirect()->route('Room.Category'); 
 
     }
+    
     public function search(Request $request){
 
         $searchTerm = $request->search;

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterDescriptionToProducts extends Migration
+class AddDeletedAtToReservesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AlterDescriptionToProducts extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('Description')->nullable();
+        Schema::table('reserves', function (Blueprint $table) {
+            $table->SoftDeletes();
         });
     }
 
@@ -25,8 +25,8 @@ class AlterDescriptionToProducts extends Migration
      */
     public function down()
     {
-        Schema::table('Products', function (Blueprint $table) {
-            //
+        Schema::table('reserves', function (Blueprint $table) {
+            $table->dropSoftDeletes();    
         });
     }
 }

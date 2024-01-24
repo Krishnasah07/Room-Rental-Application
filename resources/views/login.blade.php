@@ -25,10 +25,10 @@
     </div>
     <div class="login-form">
         <div class="form-group">
-            <input type="email" id="email" class="wrap" name="email" required placeholder="E-MAIL">
+            <input type="email" id="email" class="wrap" name="email"  placeholder="E-MAIL">
         </div>
         <div class="form-group" >
-            <input type="password" id="password" class="wrap" name="password" required placeholder="PASSWORD">
+            <input type="password" id="password" class="wrap" name="password"  placeholder="PASSWORD">
         </div>
         <div class="form-group">
             <button type="submit">Login</button>

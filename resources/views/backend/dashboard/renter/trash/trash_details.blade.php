@@ -28,14 +28,21 @@
                             <td><img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image }} " height="200px" width="200px"></td>
                             <td>{{ $reserve->productinfo->price}}</td>
                             <td>{{ $reserve->created_at}}</td>
-                            <td>1</td> 
+                            <td>1</td>
                             <td>
-                              <a href="{{ route('Room.Reservation.Delete',$reserve->id) }}">
-                                <button type="button" class="btn btn-outline-danger btn-fw">Cancel Reservation</button>
+                              <a href="{{ route('Room.Reservation.Restore',$reserve->id) }}">
+                                <button type="button" class="btn btn-primary btn-rounded btn-fw">Re-Store</button>
                               </a>
-                            </td>
+                              <br/><br/>
+                              <a href="{{ route('Room.Reservation.Force.Delete',$reserve->id) }}">
+                                <button type="button" class="btn btn-danger btn-rounded btn-fw">Delete</button>
+                              </a>
+                            </td> 
                           </tr>
                           @empty
+                          <tr>
+                            <td colspan="8" align="center" class="text-white"> NO Record in Your Trash ...</td>
+                          </tr>
                           @endforelse
                         </tbody>
                       </table>
@@ -45,3 +52,4 @@
               </div>
             </div>
 @endsection
+
