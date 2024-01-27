@@ -105,4 +105,4 @@ class ProductConteroller extends Controller
             return redirect()->back();
         }
     }
-}
+
