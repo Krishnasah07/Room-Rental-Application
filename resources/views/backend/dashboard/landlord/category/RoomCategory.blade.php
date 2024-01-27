@@ -3,7 +3,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Room Details</h4>
+                    <h4 class="card-title">Categories Details</h4>
                     </p>
                     <div class="table-responsive">
                       <hr style="color=white">
