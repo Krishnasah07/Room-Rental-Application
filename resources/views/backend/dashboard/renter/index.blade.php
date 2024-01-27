@@ -1,4 +1,5 @@
 @extends('backend.dashboard.renter.layouts.master')
+@section('title',' Dashboard')
 @section('content')
 <div class="row ">
               <div class="col-12 grid-margin">
@@ -28,10 +29,18 @@
                             <td><img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image }} " height="200px" width="200px"></td>
                             <td>{{ $reserve->productinfo->price}}</td>
                             <td>{{ $reserve->created_at}}</td>
-                            <td>1</td> 
+                            <td>
+                            @if($reserve->status == "1")
+                              <div class="badge badge-outline-success">Reservation Approved</div>
+                            @elseif($reserve->status == "0") 
+                              <div class="badge badge-outline-warning">Reservation Pending</div>
+                            @else
+                              <div class="badge badge-outline-danger">Reservation Rejected</div>
+                            @endif
+                            </td> 
                             <td>
                               <a href="{{ route('Room.Reservation.Delete',$reserve->id) }}">
-                                <button type="button" class="btn btn-outline-danger btn-fw">Cancel Reservation</button>
+                                <button type="button" class="btn btn-danger btn-fw">Cancel Reservation</button>
                               </a>
                             </td>
                           </tr>

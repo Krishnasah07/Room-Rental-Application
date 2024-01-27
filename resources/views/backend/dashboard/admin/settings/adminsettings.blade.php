@@ -1,4 +1,5 @@
 @extends('backend.dashboard.admin.layouts.master')
+@section('title','Settings')
 @section('content')
 
 

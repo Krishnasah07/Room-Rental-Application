@@ -1,4 +1,5 @@
 @extends('backend.dashboard.renter.layouts.master')
+@section('title',' Your Trash')
 @section('content')
 <div class="row ">
               <div class="col-12 grid-margin">
@@ -40,8 +41,8 @@
                             </td> 
                           </tr>
                           @empty
-                          <tr>
-                            <td colspan="8" align="center" class="text-white"> NO Record in Your Trash ...</td>
+                          <tr class="text-white">
+                            <td colspan="8" align="center"> NO Record in Your Trash ...</td>
                           </tr>
                           @endforelse
                         </tbody>

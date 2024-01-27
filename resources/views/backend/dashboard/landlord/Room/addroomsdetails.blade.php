@@ -1,4 +1,5 @@
 @extends('backend.dashboard.landlord.layouts.master')
+@section('title','Add Room Details')
 @section('content')
 <div class="col-12 grid-margin">
                 <div class="card">

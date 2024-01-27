@@ -10,7 +10,7 @@ Route::get('/', function (){
     $data['categories'] = Category::with('products')->get();
     $_SESSION['setting'] = $data['systems'];
     return view('frontend.index',$data);
-    });
+});
 
 // View Room details Route
 
@@ -37,6 +37,12 @@ Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Subm
 // group of admin routes
 Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     Route::get('dashboard','LoginController@dashboard')->name('admin.dashboard');
+
+    //LAndlord Details on Admin Dashboard
+    Route::get('Landlord/Dertails','Admincontroller@landlord')->name('Landlord.Details');
+
+    //LAndlord Details on Admin Dashboard
+    Route::get('Renter/Dertails','Admincontroller@Renter')->name('Renter.Details');
 
     // Admin settings
     Route::resource('settings','Adminsettings');
@@ -81,6 +87,9 @@ Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
     Route::get('trash','Reservecontroller@trash')->name('Room.Reservation.Trash'); //Room Reservation's Trash Details 
     Route::get('Room/Reservation/Restore/{id}','Reservecontroller@trash_restore')->name('Room.Reservation.Restore');  //Restore Reservation Details from trash
     Route::get('Room/Reservation/Permanent/Delete/{id}','Reservecontroller@trash_delete')->name('Room.Reservation.Force.Delete');  //Restore Reservation Details from trash
+
+    // Renter Settings Routes
+    Route::get('settings','RenterSettingsController@index')->name('Renter.Settings'); // View Renter Settings
      
 });
 
@@ -93,6 +102,7 @@ Route::get('/count', function (){
     dd($products);
 
     });
+
 
    
 
