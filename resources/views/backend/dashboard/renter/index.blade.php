@@ -1,6 +1,7 @@
 @extends('backend.dashboard.renter.layouts.master')
 @section('title',' Dashboard')
 @section('content')
+
 <div class="row ">
               <div class="col-12 grid-margin">
                 <div class="card">

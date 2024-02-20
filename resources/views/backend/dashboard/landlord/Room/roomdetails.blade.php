@@ -13,6 +13,7 @@
                          <thead>
                           <tr>
                             <th> S.N </th>
+                            <th> Product ID</th>
                             <th> Category ID </th>
                             <th> Description </th>
                             <th> Image 1 </th>
@@ -27,6 +28,7 @@
                         @forelse($rooms as $room)
                           <tr>
                               <td> {{ $loop->iteration }} </td>
+                              <td>{{ $room->id }}</td>
                               <td> {{ $room-> category_id}} </td>
                               <td> {{ $room->room}} </td>
                               <td> <img src="{{ asset('Room_Images').'/'.$room->image }} " height="200px" width="200px"></td>

@@ -11,7 +11,8 @@ class ProductConteroller extends Controller
 
     public function index(){
         $id = session()->get('id');
-        $data['rooms'] = Product::where('landlord_id',$id)->get();      
+        $data['rooms'] = Product::where('landlord_id',$id)->get();  
+        // dd($data);    
         return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
 

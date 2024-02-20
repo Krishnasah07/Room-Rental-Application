@@ -106,4 +106,27 @@ class Reservecontroller extends Controller
     }
 
 
+    // Landlord Reserve Details Route
+    // Fetching details of reserve table to shown on Landlord Dashboard 
+    public function reserve_details(){
+        $id = session()->get('id');
+        $data['reserve_details'] = Reserve::where('landlord_id', '=', $id)->get();
+        $data['reserve_details'] = Reserve::with('renterinfo','productinfo')->where('landlord_id', '=', $id)->get();
+        
+        // dd($data);
+        return view('backend.dashboard.landlord.index',$data);
+    }
+
+    //Changing status to Approve or Reject Renter Request to reserve room
+    public function reserve_details_update(Request $request,$id){
+        dd($id);
+        $id = session()->get('id');
+        $data['reserve_details'] = Reserve::where('landlord_id', '=', $id)->get();
+        $data['reserve_details'] = Reserve::with('renterinfo','productinfo')->where('landlord_id', '=', $id)->get();
+        
+        // dd($data);
+        return view('backend.dashboard.landlord.ViewMore',$data);
+    }
+
+
 }

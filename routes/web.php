@@ -1,6 +1,7 @@
 <?php
 use App\Category;
 use App\Systemsetting;
+use App\Http\Controllers\Admincontroller;
 
 
 
@@ -43,22 +44,27 @@ Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
 
     //LAndlord Details on Admin Dashboard
     Route::get('Renter/Dertails','Admincontroller@Renter')->name('Renter.Details');
-
-    // Admin settings
-    Route::resource('settings','Adminsettings');
-    Route::get('/new/admin','FrontendController@newadmin')->name('new.admin');
-
-
-    // Route::get('Room/Category/Delete/{id}','CategoryConteroller@catdelete')->name('Room.Category.Delete');  //
-
-    // System Setting Route
+  
+     // System settings
     Route::resource('system-setting','Systemcontroller');
+
+    //New Admin all routes 
+    Route::resource('new/admin/settings','NewAdminController'); 
+    Route::get('add/new/admin','NewAdminController@add_admin')->name('New.Admin');
+    Route::get('delete/admin/{id}','NewAdminController@delete')->name('Admin.delete');
+
+    //Change Admin Password
+    Route::get('change/password','Admincontroller@Change_password')->name('Change.Password.Admin');
+    Route::post('change/password/submit','Admincontroller@Change_Admin_password')->name('Change.Password.Admin.Submit');
 });
 
 
 // group of landlord routes
 Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
-    Route::view('dashboard','backend.dashboard.landlord.index')->name('landlord.dashboard');
+    Route::get('dashboard','Reservecontroller@reserve_details')->name('landlord.dashboard');
+
+    //View More Route from landlord Dashboard
+    Route::get('/Room/Reserve/Details/{id}','Reservecontroller@reserve_details_update')->name('View.More.Room.Details');
 
     // Room Details All Routes
     Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
@@ -96,12 +102,19 @@ Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
 Route::get('set',function(){
     $session = session()->get('id');
     print_r($session);
+    die;
 });
 
 Route::get('/count', function (){
     dd($products);
 
-    });
+});
+
+   
+
+    
+
+
 
 
    

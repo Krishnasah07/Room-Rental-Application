@@ -28,6 +28,10 @@
       th{
         font-weight: bold;
       }
+
+      .text-black{
+        text-color:black;
+      }
     </style>
   </head>
   <body>

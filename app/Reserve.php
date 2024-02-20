@@ -22,6 +22,11 @@ class Reserve extends Model
     {
         return $this->hasOne(Product::class, 'id','product_id');
     }
+
+    public function renterinfo()
+    {
+        return $this->hasOne(User::class, 'id','user_id');
+    }
 }
 
 
