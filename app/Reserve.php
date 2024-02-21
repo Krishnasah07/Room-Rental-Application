@@ -10,7 +10,7 @@ use App\Product;
 class Reserve extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['order_no'];
+    protected $fillable = ['order_no','status'];
     protected $guarded = ['id'];
 
     public function owner()

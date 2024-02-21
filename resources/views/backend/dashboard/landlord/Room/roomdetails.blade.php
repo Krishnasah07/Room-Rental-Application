@@ -37,9 +37,9 @@
                               <td> {{ $room->price}} </td>
                               <td>
                               @if($room->status == "1")
-                              Active
+                              <div class="badge badge-outline-danger">Not Room Reserved</div>
                               @else
-                              Inactive
+                              <div class="badge badge-outline-success">Room Reserved</div>
                               @endif
                               </td>
                               <td>

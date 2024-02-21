@@ -63,8 +63,15 @@ Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
 Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
     Route::get('dashboard','Reservecontroller@reserve_details')->name('landlord.dashboard');
 
-    //View More Route from landlord Dashboard
+    //View More Details about Reservation Route from landlord Dashboard
     Route::get('/Room/Reserve/Details/{id}','Reservecontroller@reserve_details_update')->name('View.More.Room.Details');
+
+    //Reject the request of reservation
+    Route::get('/Room/Reservation/Reject/{id}','Reservecontroller@reserve_reject')->name('Room.Reservation.Reject');
+
+    //Reject the request of reservation
+    Route::get('/Room/Reservation/Approval/{id}','Reservecontroller@reserve_approve')->name('Room.Reservation.Approval');
+
 
     // Room Details All Routes
     Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
