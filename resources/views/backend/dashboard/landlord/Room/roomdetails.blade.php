@@ -4,7 +4,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Room Details</h4>
+                    <h4 class="card-title">All Room Details</h4>
                     <div class="table-responsive">
                       <hr style="color=white">
                         <a href="{{ route('Room.Details.View') }}" > <button type="button" class="btn btn-primary btn-rounded btn-fw">Create</button> </a>
