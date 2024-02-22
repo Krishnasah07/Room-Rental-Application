@@ -11,7 +11,7 @@ Route::get('/', function (){
     $data['categories'] = Category::with('products')->get();
     $_SESSION['setting'] = $data['systems'];
     return view('frontend.index',$data);
-});
+})->name('Main.Page');
 
 // View Room details Route
 

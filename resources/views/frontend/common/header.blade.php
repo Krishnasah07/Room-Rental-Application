@@ -18,10 +18,17 @@
           @endif
           <form action="{{ route('login.submit') }}" method="POST">
           @if(auth()->check())
-          <li><a type="submit" class="nav-link scrollto ">Hello, {{ auth()->user()->name }}  </a></li>
+            @if(auth()->user()->role == 'Admin')
+            <li><a href="{{ route('admin.dashboard') }}" type="submit" class="nav-link scrollto ">{{ auth()->user()->name }} Profile </a></li>
+            @elseif(auth()->user()->role == 'Renter')
+            <li><a href="{{ route('renter.dashboard') }}" type="submit" class="nav-link scrollto ">{{ auth()->user()->name }} Profile </a></li>
+            @else
+            <li><a href="{{ route('landlord.dashboard') }}" type="submit" class="nav-link scrollto ">{{ auth()->user()->name }} Profile </a></li>
+            @endif
           @endif
+                  
           </form>
-        
+         
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

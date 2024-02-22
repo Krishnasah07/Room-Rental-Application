@@ -120,7 +120,7 @@
                   <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown">Welcome to <span>{{$systems->name}}</span></h2>
                     <div class="box">
-                       <form action='{{ route("frontend.search")}}' method='get'>
+                       <form action='{{ route("frontend.search") }}' method='get'>
                         @csrf
                         <input type="text" class="control" placeholder="Search Here" name="search">
                         <input type="submit" class="control" name="" value="Search ">
@@ -131,7 +131,7 @@
                         <input type="text" class="form-control" placeholder="Search Here...">
                       </form> -->
                     <!-- <p class="animate__animated fanimate__adeInUp">Krishna Sah</p> -->
-                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
                   </div>
                 </div>
             </span>

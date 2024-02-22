@@ -36,7 +36,7 @@
                                 <td>{{ $renter->email }}</td>
                                 <td>{{ $renter->mobile }}</td>
                                 <td>
-                                <img src="{{ asset('Room_Images').'/'.$renter->image ?? ''}} " height="200px" width="200px">
+                                <img src="{{ asset('Room_Images').'/'.$renter->image ?? ''}}" alt="Image Missing" height="200px" width="200px">
                                 </td>
                             </tr>
                             @empty
