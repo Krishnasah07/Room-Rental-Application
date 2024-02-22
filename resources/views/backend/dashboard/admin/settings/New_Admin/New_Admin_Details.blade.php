@@ -34,7 +34,7 @@
                                 <td>{{ $admin->email }}</td>
                                 <td>{{ $admin->mobile }}</td>
                                 <td>
-                                <img src="" height="200px" width="200px">
+                                <img src="{{ asset('Profile_Manually/Krishna.jpg') }}" height="200px" width="200px" alt="Image Missing">
                                 </td>
                                 <td>{{ $admin->Description }}</td>
                                 <td><a href="{{ route('Admin.delete',$admin->id) }}"> <button type="button" class="btn btn-danger">Delete</button> </a></td>

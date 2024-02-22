@@ -1,14 +1,15 @@
 <nav class="sidebar sidebar-offcanvas active" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href=""><img src="" alt="logo missing"></a>
-          <a class="sidebar-brand brand-logo-mini" href=""><img src="" alt="logo missing"></a>
+          <a class="sidebar-brand brand-logo" href=""><h2 style="color:white;">Roomie</h2></a>
+          <a class="sidebar-brand brand-logo-mini" href=""><h2 style="color:white;">Roomie</h2></a>
+          <!-- <a class="sidebar-brand brand-logo-mini" href=""><img src="" alt="logo missing"></a> -->
         </div>
         <ul class="nav">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="{{ asset('images/faces/face15.jpg') }}" alt="">
+                  <img class="img-xs rounded-circle " src="{{ asset('Profile_Manually/Krishna.jpg') }}" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">

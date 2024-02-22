@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session ;
 use Illuminate\Support\Facades\Cookie;
 use App\Systemsetting;
+use App\Product;
+use App\Category;
+use App\Reserve;
+use App\Contact;
+
 class LoginController extends Controller
 {
     
@@ -58,7 +63,15 @@ class LoginController extends Controller
     public function dashboard(){
         $system_setting = Systemsetting::find(1);
         $_SESSION['setting'] = $system_setting;
-        return view('backend.dashboard.admin.index', compact('system_setting'));
+        
+        $total_product=Product::all()->count();
+        $total_category=Category::all()->count();
+        $total_reserve=Reserve::all()->count();
+        $total_contact=Contact::all()->count();
+        $total_renter=User::where('role','Renter')->count();
+        $total_landlord=User::where('role','Landlord')->count();
+
+        return view('backend.dashboard.admin.index', compact('system_setting','total_product','total_category','total_reserve','total_contact','total_renter','total_landlord'));
     }
 
     public function logout(){    

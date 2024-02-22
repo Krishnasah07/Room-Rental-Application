@@ -111,8 +111,7 @@
                           <tr>
                             <th> Renter Name</th>
                             <th> Contact No. </th>
-                            <th> Image </th>
-                            <th> Image </th>
+                            <th> Image </th>                            
                             <th> Action </th>
                           </tr>
                         </thead>
@@ -120,8 +119,9 @@
                             
                             <td>{{ $update->renterinfo->name }}</td>
                             <td>{{ $update->renterinfo->mobile }}</td>                                           
-                            <td>{{ $update->renterinfo->image }}</td>
-                            <td>{{ $update->renterinfo->image }}</td>
+                            <td>
+                            <img class="img-xs rounded-circle" src="{{ asset('Profile_Manually/Prabind.jpg') }}" height="400px" width="400px" alt="Image Missing">
+                            </td>
                             <td>
                                 <a href="{{ route('Room.Reservation.Approval' ,$update->id) }}">
                                     <button type="button" class="btn btn-success btn-md">Approve</button>
