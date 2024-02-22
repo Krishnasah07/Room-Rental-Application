@@ -139,9 +139,9 @@
                       <p class="preview-subject mb-1">Logout</p> 
                     </div>
                   </a>
-                  <div class="dropdown-divider"></div>
+                  <!-- <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">Advanced settings</p>
-                </div>
+                </div> -->
               </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

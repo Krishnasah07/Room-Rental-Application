@@ -9,31 +9,34 @@ use App\User;
 
 class Admincontroller extends Controller
 {
-    public function product(){
-        $data = Product::get();
-        $product['products']  = $data->count();
-
-        $renter['renters'] = User::where('role','Renter')->count();
-
-        $landlord['landlords'] = User::where('role','Landlord')->count();
-
-        return view('backend.dashboard.admin.index',$product);
-
-        // $renter = User::whereHas('role')->count();
-
-        dd($renter,$product,$landlord);
-        // $landlord = User::whereHas('roles')->count();
-
-
-    }
-
     public function renter(){
-        $data = User::where('role','Renter')->get();
-        return view('backend.dashboard.admin.index',compact($data));
+        $data['Renters'] = User::where('role','Renter')->get();
+        // dd($data);
+        return view('backend.dashboard.admin.Details.Renter_Details',$data);
     }
 
     public function landlord(){
-        $datas = User::where('role','Landlord')->get();
-        return view('backend.dashboard.admin.index',compact($datas));        
+        $Data['Landlords'] = User::where('role','Landlord')->get();
+        // dd($Data);
+        return view('backend.dashboard.admin.Details.Landlord_Details',$Data);        
     }
+    // public function product(){
+    //     $data = Product::get();
+    //     $product['products']  = $data->count();
+
+    //     $renter['renters'] = User::where('role','Renter')->count();
+
+    //     $landlord['landlords'] = User::where('role','Landlord')->count();
+
+    //     return view('backend.dashboard.admin.index',$product);
+
+    //     // $renter = User::whereHas('role')->count();
+
+    //     dd($renter,$product,$landlord);
+    //     // $landlord = User::whereHas('roles')->count();
+
+
+    // }
+
+    
 }

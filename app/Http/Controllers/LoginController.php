@@ -67,28 +67,4 @@ class LoginController extends Controller
         $cookie = \Cookie::forget('myCookie');
         return redirect()->route('login.page');
     }
-
-
-
-    // public function checklogin(){
-    //     Auth::login($user);
-    //     $userRoles = Auth::user()->role;
-    //   switch ($userRoles) {
-    //       case 'Admin':
-    //           return redirect()->route('admin.dashboard');
-    //           break;
-
-    //       case 'Landlord':
-    //           return redirect()->route('landlord.dashboard');
-    //           break;
-
-    //       case 'Renter':
-    //           return redirect()->route('renter.dashboard');
-    //           break;
-
-    //       default:
-    //           return redirect()->back();
-    //   }
-    // }
-
 }

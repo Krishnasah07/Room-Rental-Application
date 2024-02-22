@@ -1,5 +1,5 @@
 @extends('backend.dashboard.landlord.layouts.master')
-@section('title','Add Room Category')
+@section('title','Update Room Category')
 @section('content')
 
 <div class="content-wrapper">
