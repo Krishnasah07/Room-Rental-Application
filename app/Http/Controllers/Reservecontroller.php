@@ -106,4 +106,81 @@ class Reservecontroller extends Controller
     }
 
 
+    // Landlord Reserve Details Route
+    // Fetching details of reserve table to shown on Landlord Dashboard 
+    public function reserve_details(){
+        $id = session()->get('id');
+        $data['reserve_details'] = Reserve::where('landlord_id', '=', $id)->get();
+        $data['reserve_details'] = Reserve::with('renterinfo','productinfo')->where('landlord_id', '=', $id)->get();
+        
+        // dd($data);
+        return view('backend.dashboard.landlord.index',$data);
+    }
+
+    //Changing status to Approve or Reject Renter Request to reserve room
+    public function reserve_details_update(Request $request,$id){
+        // dd($id);
+        $id = session()->get('id');
+        $data['reserve_details_updates'] = Reserve::where('landlord_id', '=', $id)->get();
+        $data['reserve_details_updates'] = Reserve::with('renterinfo','productinfo')->where('landlord_id', '=', $id)->get();
+        
+        // dd($data);
+        return view('backend.dashboard.landlord.ViewMore',$data);
+    }
+
+
+    //Room Reservation Approval
+    public function reserve_approve(Request $request,$id){
+        // dd($id);
+        if (!$id){
+            return redirect()->route('View.More.Room.Details');
+        }
+
+        $reservation = Reserve::find($id);  //finding reservation details
+
+        $productID = $reservation->product_id;
+        // dd($productID);
+
+        $product_details = Product::find($productID); //finding product
+        
+
+        //Reservation status updation
+        if($reservation){
+
+            $reservation->update(['status' => 1]);
+
+            if($product_details){
+                $product_details->update(['status'=> 0]);
+            }
+            
+            // Redirect to the landlord dashboard
+         return redirect()->route('landlord.dashboard')->with('success', 'Reservation status updated successfully');
+        }
+
+    }
+
+    
+    //Room Reservation Rejection
+    public function reserve_reject(Request $request,$id){
+        // dd($id);
+
+        if (!$id){
+            return redirect()->route('View.More.Room.Details');
+        }
+
+        $reservation = Reserve::find($id);       
+
+        if($reservation){
+
+            $reservation->update(['status' => 2]);
+            
+            // Redirect to the landlord dashboard
+        return redirect()->route('landlord.dashboard')->with('success', 'Reservation status updated successfully');
+        }
+
+        // Handle the case where the reservation is not found
+        return redirect()->route('View.More.Room.Details')->with('error', 'Reservation not found');        
+    }
+
+
 }

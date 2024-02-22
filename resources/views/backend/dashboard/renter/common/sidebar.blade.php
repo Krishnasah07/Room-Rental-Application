@@ -38,5 +38,14 @@
             </a>
           </li>
 
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ url('/')  }}" target="_blank">
+            <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Go To Website</span>
+            </a>
+          </li>
+
         </ul>
       </nav>

@@ -13,6 +13,7 @@
                          <thead>
                           <tr>
                             <th> S.N </th>
+                            <th> Product ID</th>
                             <th> Category ID </th>
                             <th> Description </th>
                             <th> Image 1 </th>
@@ -27,6 +28,7 @@
                         @forelse($rooms as $room)
                           <tr>
                               <td> {{ $loop->iteration }} </td>
+                              <td>{{ $room->id }}</td>
                               <td> {{ $room-> category_id}} </td>
                               <td> {{ $room->room}} </td>
                               <td> <img src="{{ asset('Room_Images').'/'.$room->image }} " height="200px" width="200px"></td>
@@ -35,9 +37,9 @@
                               <td> {{ $room->price}} </td>
                               <td>
                               @if($room->status == "1")
-                              Active
+                              <div class="badge badge-outline-danger">Not Room Reserved</div>
                               @else
-                              Inactive
+                              <div class="badge badge-outline-success">Room Reserved</div>
                               @endif
                               </td>
                               <td>

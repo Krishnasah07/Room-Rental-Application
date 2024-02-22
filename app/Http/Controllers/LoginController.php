@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     
     public function login(Request $request){
-
+        // dd($request->all());
 
         $request->validate([
             'email' => 'required | email',
@@ -67,4 +67,12 @@ class LoginController extends Controller
         $cookie = \Cookie::forget('myCookie');
         return redirect()->route('login.page');
     }
+
+    // public function oklogin(Request $request){
+    //     dd($request->all());
+    // }
+
+    // public function okregister(Request $request){
+    //     dd($request->all());
+    // }
 }

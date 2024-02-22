@@ -10,7 +10,7 @@ use App\Product;
 class Reserve extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['order_no'];
+    protected $fillable = ['order_no','status'];
     protected $guarded = ['id'];
 
     public function owner()
@@ -21,6 +21,11 @@ class Reserve extends Model
     public function productinfo()
     {
         return $this->hasOne(Product::class, 'id','product_id');
+    }
+
+    public function renterinfo()
+    {
+        return $this->hasOne(User::class, 'id','user_id');
     }
 }
 

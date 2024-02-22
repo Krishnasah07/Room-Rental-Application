@@ -43,7 +43,7 @@ class Systemcontroller extends Controller
        ]);
       try{
 
-            $logo = '';
+            $logo = '';            
         
             if($request->has('logo') &&  $request->file('logo')){
                 $setting  = Systemsetting::find(1);
@@ -69,6 +69,8 @@ class Systemcontroller extends Controller
             'logo' =>$logo,
             'address' =>$request->address
             ];
+
+            // dd($data);
     
             $status  = Systemsetting::updateOrCreate(['id' => 1], $data);
 

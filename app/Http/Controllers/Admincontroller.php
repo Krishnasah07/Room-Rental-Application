@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Hash;
 use App\Product;
 use App\User;
 
@@ -20,23 +22,36 @@ class Admincontroller extends Controller
         // dd($Data);
         return view('backend.dashboard.admin.Details.Landlord_Details',$Data);        
     }
-    // public function product(){
-    //     $data = Product::get();
-    //     $product['products']  = $data->count();
 
-    //     $renter['renters'] = User::where('role','Renter')->count();
+    public function Change_password(){
+        return view('backend.dashboard.admin.settings.Change-Password');
+    }
 
-    //     $landlord['landlords'] = User::where('role','Landlord')->count();
+    public function Change_Admin_password(Request $request){
 
-    //     return view('backend.dashboard.admin.index',$product);
+        $request->validate([
+            'oldPwd'=> ' required | min:6 | max:10',
+            'newPwd'=> ' required | min:6 | max:10',
+            'confirmPwd'=> ' required | min:6 | max:10'
+        ]);
 
-    //     // $renter = User::whereHas('role')->count();
+        
 
-    //     dd($renter,$product,$landlord);
-    //     // $landlord = User::whereHas('roles')->count();
+        
+        $UserID = session()->get('id'); //Getting userid from session
 
+        $user = User::where('id',$UserID)->first(); //finding user
 
-    // }
+        if($user){
+            if($user->password){
+                if(Hash::check($request->password, $user->password)){
 
-    
+                }
+            }
+        }
+
+        $request->session()->flash('error','User Not Found');
+        return redirect()->back();
+    }
+
 }
