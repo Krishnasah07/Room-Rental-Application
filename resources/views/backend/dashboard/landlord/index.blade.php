@@ -20,7 +20,7 @@
                             <th> Action </th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="color: white;">
                           @forelse($reserve_details as $reserve)                       
                             <tr>
                               <td> {{ $loop->iteration }} </td>
@@ -30,12 +30,12 @@
                                 <a href="{{ asset('Room_Images').'/'.$reserve->productinfo->image ?? '' }}" target="_blank">
                                     <img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image ?? '' }}" height="400px" width="400px">
                                 </a>
-                              </td>
+                              </td> 
                               <td> {{$reserve->renterinfo->name }} </td>
                               <td> 
-                                <!-- <a href="{{ asset('Room_Images').'/'.$reserve->productinfo->image ?? '' }}" target="_blank">
-                                    <img src="{{ asset('Room_Images').'/'.$reserve->productinfo->image ?? '' }}" height="400px" width="400px">
-                                </a> -->
+                                <a href="{{ asset('profile_Images').'/'.$reserve->renterinfo->image ?? '' }}" target="_blank">
+                                    <img src="{{ asset('Profile_Images').'/'.$reserve->renterinfo->image ?? '' }}" height="400px" width="400px">
+                                </a>
                               </td>
                               <td>  {{$reserve->renterinfo->mobile }} </td>
                               <td>
