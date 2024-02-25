@@ -78,7 +78,7 @@ class LoginController extends Controller
         Auth::logout();
         Session::flush();
         $cookie = \Cookie::forget('myCookie');
-        return redirect()->route('Main.Page');
+        return redirect()->route('ok');
     }
 
     // public function oklogin(Request $request){

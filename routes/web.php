@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 })->name('Main.Page');
 
-Route::get('/','FrontendController@index');
+Route::get('/','FrontendController@index')->name('ok');
 
 // View Room details Route
 Route::get('Room/Details/{id}','FrontendController@roomdetails')->name('details');
