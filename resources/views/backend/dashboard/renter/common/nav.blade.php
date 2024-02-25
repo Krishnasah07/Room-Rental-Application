@@ -10,7 +10,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="{{ asset('Profile_Manually/Prabind.jpg') }}" alt="">
+                    <img class="img-xs rounded-circle" src="{{ auth()->check() ? asset('Profile_Images/' . auth()->user()->image) : '' }}" alt="missing">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->check()? auth()->user()->name : ''}}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>

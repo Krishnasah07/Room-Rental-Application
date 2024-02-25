@@ -154,7 +154,8 @@
                           </div>
                         </div>
                  
-                      </div>  
+                      </div> 
+                       
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group row">
@@ -179,6 +180,32 @@
                                   {{ $message }}
                                   @enderror
                               </span>
+                            </div>
+                          </div>
+                        </div>   
+                        <!-- <button type="submit" class="btn btn-primary mr-2">Submit</button>                      -->
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label style="color:white;" class="col-sm-3 col-form-label">Room Description</label>
+                            <div class="col-sm-9">
+                            <!-- <textarea name="" id="story" name="story" rows="5" cols="33"></textarea> -->
+                              <input type="textarea" name="description" class="form-control" />
+                              <span class="text-danger">
+                                  @error('description')
+                                  {{ $message }}
+                                  @enderror
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <!-- <label style="color:white;" class="col-sm-3 col-form-label">Image 3</label> -->
+                            <div class="col-sm-9">
+                              <!-- <input type="file" name="image[]" class="form-control" /> -->
+                              
                             </div>
                           </div>
                         </div>   

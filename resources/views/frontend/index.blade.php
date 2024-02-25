@@ -97,7 +97,6 @@
             transition: 0.6s;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
         }
-
           .hv:hover{
              background-color: black;}
   </style>
@@ -172,7 +171,7 @@
                     <div class="card-body" style="height:115px; width=175px;">
                         <h5 style="color:rgb(0, 91, 228);" class="card-title"><b>{{ $prod->location}}</b></h5>
                         <p class="card-text">
-                          No. of Hall : {{ $prod->Description }}<br> 
+                          Description : {{ Str::limit($prod->Description,50) }}<br> 
                         </p>
                     </div>
                     <div class="mb-5 d-flex justify-content-around" style="height:20px; width=175px;">
@@ -266,21 +265,21 @@
           <div class="col-lg-4" data-aos="fade-right">
             <div class="info">
               <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>{{$systems->address}}</p>
+                <i class="bi bi-geo-alt" alt="Icon"></i>
+                <h4>Location:</h4>                
+                <a href="https://www.google.com/maps?q=27.02932939416626, 84.88857853562722" target="_blank" title="Open Location in Map"><p>{{$systems->address}}</p></a>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{$systems->email}}</p>
+                <a href="mailto:{{$systems->email}}" title="Email Us"><p>{{$systems->email}}</p></a>
               </div>
 
               <div class="phone">
-                <i class="bi bi-phone"></i>
+                <i class="bi bi-phone" title="Call Us"></i>
                 <h4>Call:</h4>
-                <p>+977 {{$systems->phone}}</p>
+                <a href="tel:+977 {{$systems->phone}}" title="Call Us"><p>+977 {{$systems->phone}}</p></a>
               </div>
 
             </div>
@@ -289,21 +288,21 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
-            <form action="{{ route('Contact.Us.Submit') }}" method="post" role="form" class="php-email-form">
-              @csrf
+            <!-- <form action="" role="form" class="php-email-form" method="POST">
+             
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ old('name') }}" required/>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}" required/>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" value="{{ old('subject') }}" required/>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" value="{{ old('message') }}" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
@@ -311,7 +310,7 @@
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+            </form> -->
 
           </div>
 

@@ -13,13 +13,16 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('_contacts', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('email');
             $table->string('subject');
             $table->text('message');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_contacts');
+        Schema::dropIfExists('contacts');
     }
 }

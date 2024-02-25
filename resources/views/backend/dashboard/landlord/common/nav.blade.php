@@ -110,7 +110,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="{{ asset('Profile_Manually/Subash.jpg') }}" alt="">
+                  <img class="img-xs rounded-circle" src="{{ auth()->check() ? asset('Profile_Images/' . auth()->user()->image) : '' }}" alt="missing">
                     <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->check()? auth()->user()->name : ''}}</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
@@ -118,7 +118,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  <a  href="{{ route('Landlord.Settings') }}" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>
@@ -140,7 +140,7 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                  <!-- <p class="p-3 mb-0 text-center">Advanced settings</p> -->
                 </div>
               </li>
             </ul>

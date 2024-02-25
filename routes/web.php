@@ -2,19 +2,22 @@
 use App\Category;
 use App\Systemsetting;
 use App\Http\Controllers\Admincontroller;
+use Illuminate\Support\Facades\Session;
 
 
 
 // Frontend All Routes i.e Main page all routes
-Route::get('/', function (){
+Route::get('/', function () {
     $data['systems'] = Systemsetting::find(1);
-    $data['categories'] = Category::with('products')->get();
-    $_SESSION['setting'] = $data['systems'];
-    return view('frontend.index',$data);
+    $data['categories'] = Category::with('products')->latest()->paginate(6)->first(); // Change 10 to the number of items you want per page
+    Session::put('setting', $data['systems']);
+    return view('frontend.index', $data);
+
 })->name('Main.Page');
 
-// View Room details Route
+Route::get('/','FrontendController@index');
 
+// View Room details Route
 Route::get('Room/Details/{id}','FrontendController@roomdetails')->name('details');
 
 
@@ -33,7 +36,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout.all');
 Route::get('search','CategoryConteroller@search')->name('frontend.search');
 
 // Contact US Route
-Route::post('/contact-submit','ContactController@create')->name('Contact.Us.Submit');
+Route::post('/contact/submit','ContactController@submit')->name('cts');
 
 // group of admin routes
 Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
@@ -56,6 +59,10 @@ Route::group(['prefix'=>'admin','middleware' => 'auth.login'],function(){
     //Change Admin Password
     Route::get('change/password','Admincontroller@Change_password')->name('Change.Password.Admin');
     Route::post('change/password/submit','Admincontroller@Change_Admin_password')->name('Change.Password.Admin.Submit');
+
+    //Change Admin Password
+    Route::get('upadate/profile','Admincontroller@index')->name('Update.Profile.Admin');
+    Route::post('upadate/profile/submit','Admincontroller@update_profile')->name('Update.Password.Admin.Submit');
 });
 
 
@@ -72,6 +79,9 @@ Route::group(['prefix'=>'landlord','middleware' => 'auth.login'],function(){
     //Reject the request of reservation
     Route::get('/Room/Reservation/Approval/{id}','Reservecontroller@reserve_approve')->name('Room.Reservation.Approval');
 
+    // Renter Settings Routes
+    Route::get('settings','LandlordSettingsController@index')->name('Landlord.Settings'); // View Renter Settings
+    Route::post('profile/update','LandlordSettingsController@update_profile')->name('Landlord.Profile.Updation');
 
     // Room Details All Routes
     Route::get('Room/Details','ProductConteroller@index')->name('Room.Details');  //view category
@@ -103,6 +113,7 @@ Route::group(['prefix'=>'renter','middleware' => 'auth.login'],function(){
 
     // Renter Settings Routes
     Route::get('settings','RenterSettingsController@index')->name('Renter.Settings'); // View Renter Settings
+    Route::post('profile/update','RenterSettingsController@update_profile')->name('Profile.Updation');
      
 });
 

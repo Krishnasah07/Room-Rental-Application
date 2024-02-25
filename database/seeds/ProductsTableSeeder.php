@@ -1,6 +1,7 @@
-<?php
+ <?php
 
 use Illuminate\Database\Seeder;
+use App\Product;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -11,20 +12,23 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            'category_id' => '1',
-            'location' => 'Birgunj',
-            'hall' => '1',
-            'room' => '2',
-            'kitchen' => '1',
-            'bathroom' => '1',
-            'image' => 'https://static.vecteezy.com/system/resources/thumbnails/028/246/009/small/colored-minimalis-living-room-design-simple-fictional-sophisticated-product-design-furniture-design-white-background-generative-ai-photo.jpg',
-            'image2' => 'https://i.pinimg.com/originals/3c/38/82/3c3882deae3a6af315bf40c7b6058485.jpg',
-            'image3' => 'https://thumbs.dreamstime.com/b/mock-up-poster-frame-modern-interior-background-living-room-scandinavian-style-d-render-mock-up-poster-frame-modern-interior-161161670.jpg',
-            'price' => '3000',
-            'status' => '1',
-            'phone' => '9856354586'
-        ]; 
-        DB::table('products')->insert($data);  
+        $product = new Product;
+
+        $product->landlord_id = "2";
+        $product->category_id = "1";
+        $product->location  = "Birgunj";
+        $product->hall = "1";
+        $product->room = "5";
+        $product->kitchen = "1";
+        $product->bathroom = "1";
+        $product->price = "7000";
+        $product->status = "1";     
+        $product->phone = "9825252525";
+        $product->Description = "In a corner, a desk adorned with a scattering of pens, notebooks, and a vintage lamp serves as a dedicated space for creativity and productivity.";
+        $product->image = 'https://www.thespruce.com/thmb/2_Q52GK3rayV1wnqm6vyBvgI3Ew=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/put-together-a-perfect-guest-room-1976987-hero-223e3e8f697e4b13b62ad4fe898d492d.jpg';
+        $product->image2 = 'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?cs=srgb&dl=pexels-pixabay-271816.jpg&fm=jpg';
+        $product->image3 = 'https://www.shutterstock.com/image-photo/blue-room-living-interior-decoration-260nw-1083296849.jpg';
+
+        $product->save();
     }
 }

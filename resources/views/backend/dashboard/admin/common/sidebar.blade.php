@@ -9,7 +9,7 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="{{ asset('Profile_Manually/Krishna.jpg') }}" alt="">
+                <img class="img-xs rounded-circle" src="{{ auth()->check() ? asset('Profile_Images/' . auth()->user()->image) : '' }}" alt="missing">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
@@ -30,7 +30,7 @@
                   </div>
                 </a> -->
                 <div class="dropdown-divider"></div>
-                <a href="{{ route('Change.Password.Admin') }}" class="dropdown-item preview-item">
+                <!-- <a href="{{ route('Change.Password.Admin') }}" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
                       <i class="mdi mdi-onepassword  text-info"></i>
@@ -39,7 +39,7 @@
                   <div class="preview-item-content">
                     <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
                   </div>
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -97,14 +97,14 @@
               <span class="menu-title">System Settings</span>
             </a>
           </li>
-          <li class="nav-item menu-items">
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
                 <i class="mdi mdi-chart-bar"></i>
               </span>
               <span class="menu-title">Charts</span>
             </a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item menu-items">
             <a class="nav-link" href="pages/icons/mdi.html">
               <span class="menu-icon">

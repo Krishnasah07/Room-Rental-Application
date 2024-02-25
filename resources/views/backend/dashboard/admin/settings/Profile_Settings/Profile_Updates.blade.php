@@ -1,4 +1,4 @@
-@extends('backend.dashboard.renter.layouts.master')
+@extends('backend.dashboard.admin.layouts.master')
 @section('title','Profile Settings')
 @section('content')
 
@@ -6,8 +6,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Update Your Profile</h4>
-                    <h5><span style="color: red;">Note :</span> Provide your old password to change anything in your profile</h5>
-                    <form action="{{ route('Profile.Updation') }}"  class="form-sample" method="POST" enctype='multipart/form-data'>
+                    <h5 style="color:white;"><span style="color: red;">Note :</span> Provide your old password to change anything in your profile</h5>
+                    <form action="{{ route('Update.Password.Admin.Submit') }}"  class="form-sample" method="POST" enctype='multipart/form-data'>
                       @csrf                     
                       <div class="row">
                         <div class="col-md-6">
@@ -69,21 +69,6 @@
                           </div>
                         </div>
                       </div>
-                      <!-- <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label style="color:white;" class="col-sm-3 col-form-label">New Password</label>
-                            <div class="col-sm-9">
-                              <input type="text" name="newpwd" class="form-control" placeholder="New Password" />
-                              <span class="text-danger">
-                                  @error('newpwd')
-                                  {{ $message }}
-                                  @enderror
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>   -->
                       
                       <div class="row">
                         <div class="col-md-6">

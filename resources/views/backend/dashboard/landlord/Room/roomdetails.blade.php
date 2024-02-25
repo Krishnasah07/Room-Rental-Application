@@ -50,8 +50,11 @@
                             @empty
                          <tr><td colspan="9" align="center"> No Record Found !! </td></tr>
                        @endforelse
+
+                      
                         </tbody>
                       </table>
+                     <div> {{ $rooms->links() }}</div>
                     </div>
                   </div>
                 </div>

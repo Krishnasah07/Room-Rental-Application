@@ -11,7 +11,7 @@ class ProductConteroller extends Controller
 
     public function index(){
         $id = session()->get('id');
-        $data['rooms'] = Product::where('landlord_id',$id)->get();  
+        $data['rooms'] = Product::where('landlord_id',$id)->latest()->paginate(10);  
         // dd($data);    
         return view('backend.dashboard.landlord.Room.roomdetails',$data);
     }
@@ -23,6 +23,7 @@ class ProductConteroller extends Controller
     }
 
     public function create(Request $request){
+        // dd($request->All());
         $request->validate([
                         'location' => 'required',
                         'price' =>'required',
@@ -62,6 +63,7 @@ class ProductConteroller extends Controller
                      'bathroom' =>$request->bathroom,
                      'phone' =>$request->phone,
                      'status' =>$request->status,
+                     'Description'=>$request->description,
                      'image' =>$images['image0'] ?? "",
                      'image2'=>$images['image1'] ?? "",
                      'image3'=>$images['image2'] ?? ""
